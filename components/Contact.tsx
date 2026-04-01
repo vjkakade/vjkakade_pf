@@ -39,10 +39,10 @@ export default function Contact() {
 
         <div className="flex flex-col md:items-end justify-center">
             <div className="flex space-x-6">
-                <a href="https://github.com/vjkakade" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
+                <a aria-label="Visit GitHub Profile" href="https://github.com/vjkakade" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
                     <GithubIcon className="w-6 h-6" />
                 </a>
-                <a href="https://www.linkedin.com/in/vjkakade/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
+                <a aria-label="Visit LinkedIn Profile" href="https://www.linkedin.com/in/vjkakade/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
                     <LinkedinIcon className="w-6 h-6" />
                 </a>
             </div>

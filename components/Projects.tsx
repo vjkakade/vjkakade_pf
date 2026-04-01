@@ -59,13 +59,13 @@ export default function Projects() {
                 
                 <div className="flex gap-4 w-full border-t border-white/10 pt-6 mt-auto">
                     {project.demoUrl && (
-                        <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center text-sm font-medium text-white hover:text-neutral-300 transition-colors">
+                        <a aria-label={`View Demo Video for ${project.title}`} href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center text-sm font-medium text-white hover:text-neutral-300 transition-colors">
                             <Video className="w-4 h-4 mr-2" />
                             Demo Video
                         </a>
                     )}
                     {project.repoUrl && (
-                        <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center text-sm font-medium text-white hover:text-neutral-300 transition-colors ml-4">
+                        <a aria-label={`View GitHub Repository for ${project.title}`} href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center text-sm font-medium text-white hover:text-neutral-300 transition-colors ml-4">
                             <GithubIcon className="w-4 h-4 mr-2" />
                             GitHub Repo
                         </a>

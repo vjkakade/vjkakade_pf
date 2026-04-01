@@ -18,29 +18,47 @@ export default function ScrollyCanvas({ frameCount }: ScrollyCanvasProps) {
 
   // Load all images sequence
   useEffect(() => {
-    const loadedImages: HTMLImageElement[] = [];
-    let loadedCount = 0;
-
-    for (let i = 0; i < frameCount; i++) {
-        const img = new Image();
-        // The image paths are sequence/frame_[00...89]_delay-0.067s.webp based on the provided hint.
-        // Wait! The user mentioned: "The files are named sequentially (e.g., frame_00_delay-0.067s.webp"
-        // Actual files found are frame_000_delay-0.066s.webp
-        const indexStr = i.toString().padStart(3, '0');
-        img.src = `/sequence/frame_${indexStr}_delay-0.066s.webp`;
-        
-        img.onload = () => {
-          loadedCount++;
-          if (loadedCount === frameCount) {
-             setImages(loadedImages);
-             drawFrame(0, loadedImages);
-          }
-        };
-        loadedImages.push(img);
-    }
+    let active = true;
+    const loadedImages: HTMLImageElement[] = new Array(frameCount);
     
-    // Fallback if load is slow
-    setImages(loadedImages);
+    // 1. Immediately load and draw the first frame to avoid a blank screen
+    const firstImg = new Image();
+    firstImg.src = `/sequence/frame_000_delay-0.066s.webp`;
+    firstImg.onload = () => {
+      if (!active) return;
+      loadedImages[0] = firstImg;
+      // We trigger a manual draw just for this first frame to get pixels on screen
+      setImages([...loadedImages]);
+      drawFrame(0, loadedImages);
+      
+      // 2. Schedule the rest of the images to load asynchronously
+      if (typeof window !== 'undefined' && window.requestIdleCallback) {
+        window.requestIdleCallback(() => loadRemainingFrames(loadedImages, active));
+      } else {
+        setTimeout(() => loadRemainingFrames(loadedImages, active), 0);
+      }
+    };
+
+    const loadRemainingFrames = (imgsArr: HTMLImageElement[], isActive: boolean) => {
+      let loadedCount = 1; // 0th is already loaded
+      for (let i = 1; i < frameCount; i++) {
+          const img = new Image();
+          const indexStr = i.toString().padStart(3, '0');
+          img.src = `/sequence/frame_${indexStr}_delay-0.066s.webp`;
+          
+          img.onload = () => {
+            if (!isActive) return;
+            imgsArr[i] = img;
+            loadedCount++;
+            if (loadedCount === frameCount) {
+               // Update state when all are completely loaded
+               setImages([...imgsArr]);
+            }
+          };
+      }
+    };
+
+    return () => { active = false; };
   }, [frameCount]);
 
   const drawFrame = (frameIndex: number, imgs: HTMLImageElement[]) => {
@@ -54,37 +72,61 @@ export default function ScrollyCanvas({ frameCount }: ScrollyCanvasProps) {
     if (img.width === 0 || img.height === 0) return; // not loaded yet
     
     // Calculate aspect ratio / object-fit cover logic
-    const rw = canvas.width / img.width;
-    const rh = canvas.height / img.height;
+    // We use the canvas "logical" size in layout here rather than pure pixel resolution, 
+    // but drawing should scale based on the internal pixel buffer dimensions.
+    const logicalWidth = canvas.clientWidth;
+    const logicalHeight = canvas.clientHeight;
+    
+    const rw = logicalWidth / img.width;
+    const rh = logicalHeight / img.height;
     const ratio = Math.max(rw, rh);
 
     const newWidth = img.width * ratio;
     const newHeight = img.height * ratio;
-    const x = (canvas.width - newWidth) / 2;
-    const y = (canvas.height - newHeight) / 2;
+    const x = (logicalWidth - newWidth) / 2;
+    const y = (logicalHeight - newHeight) / 2;
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // We scale the context by dpr so operations use logical units
+    const dpr = window.devicePixelRatio || 1;
+    ctx.save();
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, logicalWidth, logicalHeight);
     ctx.drawImage(img, x, y, newWidth, newHeight);
+    ctx.restore();
   };
 
   // Resize handler for Canvas
   useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>;
+
     const handleResize = () => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      
-      // redraw on resize
-      if (images.length > 0) {
-        drawFrame(Math.round(scrollYProgress.get() * (frameCount - 1)), images);
-      }
+      // Debounce the resize event to limit expensive recalculations
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        
+        // Setup High-DPI Canvas
+        const dpr = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        
+        // redraw on resize
+        if (images.length > 0) {
+          drawFrame(Math.round(scrollYProgress.get() * (frameCount - 1)), images);
+        }
+      }, 50);
     };
     
     window.addEventListener('resize', handleResize);
     handleResize(); // Initial setup
     
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(timeoutId);
+    };
   }, [images, scrollYProgress, frameCount]);
 
   // Scrub animation on scroll

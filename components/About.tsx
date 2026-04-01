@@ -26,7 +26,7 @@ export default function About() {
           </p>
           {/* Note: Update the href URL to point to a valid PDF file when hosting. */}
           <a
-            href="#"
+            href="/resume.pdf"
             download
             className="inline-flex items-center px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-colors duration-300 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
           >
