@@ -81,8 +81,10 @@ export default function ScrollyCanvas({ frameCount }: ScrollyCanvasProps) {
     const rh = logicalHeight / img.height;
     const ratio = Math.max(rw, rh);
 
-    const newWidth = img.width * ratio;
-    const newHeight = img.height * ratio;
+    // Scale up by 8% to naturally crop out the Veo watermark (which usually sits in the corner)
+    const scaleFactor = 1.08;
+    const newWidth = img.width * ratio * scaleFactor;
+    const newHeight = img.height * ratio * scaleFactor;
     const x = (logicalWidth - newWidth) / 2;
     const y = (logicalHeight - newHeight) / 2;
 
