@@ -15,6 +15,20 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const XIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+  </svg>
+);
+
+const InstagramIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
+
 export default function Contact() {
   return (
     <footer className="relative z-20 bg-black/40 border-t border-white/5 py-16 px-8 md:px-24 mt-16">
@@ -26,9 +40,9 @@ export default function Contact() {
             I build cloud-native, secure, and scalable automation platforms. Reach out to collaborate or discuss new opportunities.
           </p>
           <div className="space-y-4">
-            <a href="mailto:vijay.kakade28@gmail.com" className="flex items-center text-neutral-300 hover:text-white transition-colors w-max">
+            <a href="mailto:vijaykakade@live.com" className="flex items-center text-neutral-300 hover:text-white transition-colors w-max">
               <Mail className="w-5 h-5 mr-3" />
-              vijay.kakade28@gmail.com
+              vijaykakade@live.com
             </a>
             <div className="flex items-center text-neutral-300">
               <MapPin className="w-5 h-5 mr-3" />
@@ -44,6 +58,12 @@ export default function Contact() {
                 </a>
                 <a aria-label="Visit LinkedIn Profile" href="https://www.linkedin.com/in/vjkakade/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
                     <LinkedinIcon className="w-6 h-6" />
+                </a>
+                <a aria-label="Visit X Profile" href="https://x.com/vjkakade" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
+                    <XIcon className="w-6 h-6" />
+                </a>
+                <a aria-label="Visit Instagram Profile" href="https://instagram.com/vjkakade" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
+                    <InstagramIcon className="w-6 h-6" />
                 </a>
             </div>
         </div>
