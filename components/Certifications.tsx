@@ -25,28 +25,23 @@ export default function Certifications() {
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {certs.map((cert, idx) => {
-            const [month, year] = cert.date.split('-');
-            return (
-              <div
-                key={idx}
-                className="flex items-center justify-between p-6 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-colors duration-300 relative overflow-hidden"
-              >
-                {/* Red left accent */}
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 h-[60%] w-1 bg-[#D95F5F] rounded-r-md" />
-                
-                <div className="flex-1 flex justify-center text-center px-6">
-                  <p className="text-white font-bold text-sm md:text-base leading-snug max-w-[85%]">{cert.name}</p>
-                </div>
-                
-                <div className="flex-shrink-0 text-center w-16">
-                  <p className="text-[#D95F5F] text-xs md:text-sm font-semibold tracking-wide">
-                    {month}-<br />{year}
-                  </p>
-                </div>
+          {certs.map((cert, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-colors duration-300 gap-4"
+            >
+              <div className="flex items-center flex-1">
+                <div className="h-3 w-3 rounded-full bg-white/50 mr-4 flex-shrink-0" />
+                <p className="text-neutral-200 font-medium leading-snug">{cert.name}</p>
               </div>
-            );
-          })}
+              
+              <div className="flex-shrink-0 sm:ml-4">
+                <p className="text-neutral-500 text-sm font-medium tracking-wide">
+                  {cert.date}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
