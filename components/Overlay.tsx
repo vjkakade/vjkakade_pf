@@ -32,7 +32,7 @@ export default function Overlay() {
           style={{ opacity: opacity1, y: y1 }}
           className="absolute flex flex-col items-center text-center justify-center p-8"
         >
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white drop-shadow-lg">
+          <h1 className="text-5xl md:text-7xl font-brand font-extrabold tracking-tight text-white drop-shadow-lg">
             Vijay Kakade.
           </h1>
           <p className="mt-4 text-xl md:text-2xl text-neutral-300">
@@ -45,7 +45,7 @@ export default function Overlay() {
           style={{ opacity: opacity2, y: y2 }}
           className="absolute left-8 md:left-24 max-w-lg p-8"
         >
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg">
+          <h2 className="text-4xl md:text-6xl font-brand font-bold tracking-tight text-white drop-shadow-lg">
             I build digital experiences.
           </h2>
           <p className="mt-4 text-lg md:text-xl text-neutral-300">
@@ -58,7 +58,7 @@ export default function Overlay() {
           style={{ opacity: opacity3, y: y3 }}
           className="absolute right-8 md:right-24 max-w-lg text-right p-8"
         >
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg">
+          <h2 className="text-4xl md:text-6xl font-brand font-bold tracking-tight text-white drop-shadow-lg">
             Bridging design and engineering.
           </h2>
           <p className="mt-4 text-lg md:text-xl text-neutral-300">
