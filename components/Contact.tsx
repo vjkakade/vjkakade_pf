@@ -29,6 +29,13 @@ const InstagramIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const BlogIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+  </svg>
+);
+
 export default function Contact() {
   return (
     <footer className="relative z-20 bg-black/40 border-t border-white/5 py-16 px-8 md:px-24 mt-16">
@@ -64,6 +71,9 @@ export default function Contact() {
                 </a>
                 <a aria-label="Visit Instagram Profile" href="https://instagram.com/vjkakade" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
                     <InstagramIcon className="w-6 h-6" />
+                </a>
+                <a aria-label="Visit Blog Profile" href="https://www.knowledgehut.com/blog/author/vijay-kakade" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
+                    <BlogIcon className="w-6 h-6" />
                 </a>
             </div>
         </div>
