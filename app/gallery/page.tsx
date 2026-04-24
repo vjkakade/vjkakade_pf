@@ -1,9 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, X } from 'lucide-react';
 
 // INSTRUCTIONS FOR UPDATING PHOTOS:
 // 1. Create a "gallery" folder inside the "public" folder of your project (e.g., public/gallery/)
@@ -81,6 +81,17 @@ const photos = [
 ];
 
 export default function GalleryPage() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  // Close on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedImage(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
     <main className="min-h-screen bg-[#121212] text-white selection:bg-white/30 font-sans">
       <div className="max-w-7xl mx-auto px-8 py-16 md:py-24">
@@ -110,7 +121,9 @@ export default function GalleryPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1, duration: 0.5 }}
-              className="break-inside-avoid"
+              className="break-inside-avoid cursor-pointer"
+              onClick={() => setSelectedImage(photo.src)}
+              layoutId={`photo-${photo.src}`}
             >
               <div className="relative group overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-colors">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -120,13 +133,41 @@ export default function GalleryPage() {
                   className="w-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-center justify-center">
+                   <p className="text-white font-medium tracking-wide drop-shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 transform translate-y-4 group-hover:translate-y-0">View Image</p>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
-        
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 md:p-12 backdrop-blur-md cursor-zoom-out"
+          >
+            <button 
+              onClick={(e) => { e.stopPropagation(); setSelectedImage(null); }}
+              className="absolute top-6 right-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors z-50 cursor-pointer"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <motion.img
+              layoutId={`photo-${selectedImage}`}
+              src={selectedImage}
+              alt="Expanded Gallery Image"
+              className="max-h-full max-w-full object-contain rounded-lg shadow-2xl cursor-default"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
