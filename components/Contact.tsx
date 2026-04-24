@@ -36,6 +36,14 @@ const BlogIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const ImageIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+    <polyline points="21 15 16 10 5 21"></polyline>
+  </svg>
+);
+
 export default function Contact() {
   return (
     <footer className="relative z-20 bg-black/40 border-t border-white/5 py-16 px-8 md:px-24 mt-16">
@@ -74,6 +82,9 @@ export default function Contact() {
                 </a>
                 <a aria-label="Visit Blog Profile" href="https://www.knowledgehut.com/blog/author/vijay-kakade" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
                     <BlogIcon className="w-6 h-6" />
+                </a>
+                <a aria-label="View Photo Gallery" href="/gallery" className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
+                    <ImageIcon className="w-6 h-6" />
                 </a>
             </div>
         </div>
