@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Outfit } from 'next/font/google';
+import Cursor from '@/components/Cursor';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -43,8 +44,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${outfit.variable} font-sans antialiased`}>
+    <html lang="en" className="scroll-smooth">
+      <body className={`${inter.variable} ${outfit.variable} font-sans antialiased bg-[#121212]`}>
+        <Cursor />
         {children}
       </body>
     </html>

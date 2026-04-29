@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import { Mail, MapPin } from 'lucide-react';
 
 const GithubIcon = ({ className }: { className?: string }) => (
@@ -45,55 +47,106 @@ const ImageIcon = ({ className }: { className?: string }) => (
 );
 
 export default function Contact() {
+  const [status, setStatus] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setStatus('Sending...');
+    try {
+      // TODO: Replace YOUR_FORM_ID_HERE with your actual formspree ID
+      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID_HERE', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+      if (response.ok) {
+        setStatus('Message sent successfully!');
+        form.reset();
+      } else {
+        setStatus('Failed to send. Please ensure you replaced YOUR_FORM_ID_HERE.');
+      }
+    } catch {
+      setStatus('Failed to send. Please try again.');
+    }
+  };
+
   return (
-    <footer className="relative z-20 bg-black/40 border-t border-white/5 py-16 px-8 md:px-24 mt-16">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+    <footer className="relative z-20 bg-[#121212] border-t border-white/5 py-24 px-8 md:px-24">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
         
-        <div>
-          <h2 className="text-3xl font-bold text-white mb-6">Let&apos;s Connect</h2>
-          <p className="text-neutral-400 mb-8 max-w-sm leading-relaxed">
-            I build cloud-native, secure, and scalable automation platforms. Reach out to collaborate or discuss new opportunities.
-          </p>
-          <div className="space-y-4">
-            <a href="mailto:vijaykakade@live.com" className="flex items-center text-neutral-300 hover:text-white transition-colors w-max">
-              <Mail className="w-5 h-5 mr-3" />
-              vijaykakade@live.com
-            </a>
-            <div className="flex items-center text-neutral-300">
-              <MapPin className="w-5 h-5 mr-3" />
-              Pune, India
+        {/* Left Side: Contact Info & Socials */}
+        <div className="flex flex-col justify-between">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-brand font-bold text-white mb-6 tracking-tight">Let&apos;s Connect</h2>
+            <p className="text-neutral-400 mb-12 max-w-md text-lg leading-relaxed">
+              I build cloud-native, secure, and scalable automation platforms. Reach out to collaborate or discuss new opportunities.
+            </p>
+            <div className="space-y-6 mb-16">
+              <a href="mailto:vijaykakade@live.com" className="flex items-center text-neutral-300 hover:text-white transition-colors w-max text-lg">
+                <Mail className="w-6 h-6 mr-4 text-neutral-500" />
+                vijaykakade@live.com
+              </a>
+              <div className="flex items-center text-neutral-300 text-lg">
+                <MapPin className="w-6 h-6 mr-4 text-neutral-500" />
+                Pune, India
+              </div>
             </div>
+          </div>
+
+          <div className="flex flex-wrap gap-4">
+              <a aria-label="Visit GitHub Profile" href="https://github.com/vjkakade" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
+                  <GithubIcon className="w-5 h-5" />
+              </a>
+              <a aria-label="Visit LinkedIn Profile" href="https://www.linkedin.com/in/vjkakade/" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
+                  <LinkedinIcon className="w-5 h-5" />
+              </a>
+              <a aria-label="Visit X Profile" href="https://x.com/vjkakade" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
+                  <XIcon className="w-5 h-5" />
+              </a>
+              <a aria-label="Visit Instagram Profile" href="https://instagram.com/vjkakade" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
+                  <InstagramIcon className="w-5 h-5" />
+              </a>
+              <a aria-label="Visit Blog Profile" href="https://www.knowledgehut.com/blog/author/vijay-kakade" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
+                  <BlogIcon className="w-5 h-5" />
+              </a>
+              <a aria-label="View Photo Gallery" href="/gallery" className="p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
+                  <ImageIcon className="w-5 h-5" />
+              </a>
           </div>
         </div>
 
-        <div className="flex flex-col md:items-end justify-center">
-            <div className="flex space-x-6">
-                <a aria-label="Visit GitHub Profile" href="https://github.com/vjkakade" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
-                    <GithubIcon className="w-6 h-6" />
-                </a>
-                <a aria-label="Visit LinkedIn Profile" href="https://www.linkedin.com/in/vjkakade/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
-                    <LinkedinIcon className="w-6 h-6" />
-                </a>
-                <a aria-label="Visit X Profile" href="https://x.com/vjkakade" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
-                    <XIcon className="w-6 h-6" />
-                </a>
-                <a aria-label="Visit Instagram Profile" href="https://instagram.com/vjkakade" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
-                    <InstagramIcon className="w-6 h-6" />
-                </a>
-                <a aria-label="Visit Blog Profile" href="https://www.knowledgehut.com/blog/author/vijay-kakade" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
-                    <BlogIcon className="w-6 h-6" />
-                </a>
-                <a aria-label="View Photo Gallery" href="/gallery" className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-colors text-white">
-                    <ImageIcon className="w-6 h-6" />
-                </a>
+        {/* Right Side: Contact Form */}
+        <div className="bg-white/5 p-8 md:p-10 rounded-3xl border border-white/10 backdrop-blur-md">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-neutral-400 mb-2">Full Name</label>
+              <input type="text" id="name" name="name" required className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-neutral-600 focus:outline-none focus:border-white/30 focus:bg-black/40 transition-colors" placeholder="John Doe" />
             </div>
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-neutral-400 mb-2">Email Address</label>
+              <input type="email" id="email" name="email" required className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-neutral-600 focus:outline-none focus:border-white/30 focus:bg-black/40 transition-colors" placeholder="john@example.com" />
+            </div>
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-neutral-400 mb-2">Your Message</label>
+              <textarea id="message" name="message" required rows={4} className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-neutral-600 focus:outline-none focus:border-white/30 focus:bg-black/40 transition-colors resize-none" placeholder="How can I help you?"></textarea>
+            </div>
+            <button type="submit" className="w-full py-4 bg-white text-black font-semibold rounded-xl hover:bg-neutral-200 transition-colors mt-2 text-lg">
+              {status || 'Send Message'}
+            </button>
+            <p className="text-xs text-neutral-500 text-center mt-2 font-mono">
+              Action Required: Replace YOUR_FORM_ID_HERE in Contact.tsx
+            </p>
+          </form>
         </div>
 
       </div>
       
-      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 text-center flex flex-col items-center">
+      <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-white/5 text-center flex flex-col items-center">
         <p className="text-neutral-500 text-sm">
-          Designed by <a href="https://www.linkedin.com/in/vjkakade/" target="_blank" rel="noopener noreferrer" className="text-white hover:underline">Vijay Kakade</a>
+          Designed by <a href="https://www.linkedin.com/in/vjkakade/" target="_blank" rel="noopener noreferrer" className="text-white hover:underline transition-colors">Vijay Kakade</a>
         </p>
       </div>
     </footer>

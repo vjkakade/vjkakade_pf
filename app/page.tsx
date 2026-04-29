@@ -1,9 +1,11 @@
 import ScrollyCanvas from '@/components/ScrollyCanvas';
 import Overlay from '@/components/Overlay';
 import About from '@/components/About';
+import Skills from '@/components/Skills';
 import Experience from '@/components/Experience';
 import Certifications from '@/components/Certifications';
 import Projects from '@/components/Projects';
+import LatestBlogs from '@/components/LatestBlogs';
 import Contact from '@/components/Contact';
 
 export default function Home() {
@@ -21,9 +23,11 @@ export default function Home() {
       </div>
 
       <About />
+      <Skills />
       <Experience />
       <Certifications />
       <Projects />
+      <LatestBlogs />
       <Contact />
     </main>
   );
