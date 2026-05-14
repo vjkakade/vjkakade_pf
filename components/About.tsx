@@ -1,4 +1,5 @@
 import React from 'react';
+import Terminal from './Terminal';
 
 const skills = [
   'Azure', 'AWS', 'GCP', 'Oracle Cloud', 'Azure DevOps',
@@ -54,6 +55,9 @@ export default function About() {
         </div>
 
       </div>
+
+      {/* DevOps Terminal Easter Egg */}
+      <Terminal />
     </section>
   );
 }
