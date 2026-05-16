@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, X } from 'lucide-react';
+import { playPopSound } from '@/utils/sound';
 
 // INSTRUCTIONS FOR UPDATING PHOTOS:
 // 1. Create a "gallery" folder inside the "public" folder of your project (e.g., public/gallery/)
@@ -122,7 +123,10 @@ export default function GalleryPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1, duration: 0.5 }}
               className="break-inside-avoid cursor-pointer"
-              onClick={() => setSelectedImage(photo.src)}
+              onClick={() => {
+                setSelectedImage(photo.src);
+                playPopSound();
+              }}
               layoutId={`photo-${photo.src}`}
             >
               <div className="relative group overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-colors">
