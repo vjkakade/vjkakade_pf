@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Outfit } from 'next/font/google';
 import Cursor from '@/components/Cursor';
+import ScrollHelper from '@/components/ScrollHelper';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -46,6 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${outfit.variable} font-sans antialiased bg-[#121212]`}>
+        <ScrollHelper />
         <Cursor />
         {children}
       </body>
