@@ -1,7 +1,7 @@
 import React from 'react';
 
 const certs = [
-  { name: 'GitHub Copilot', date: 'Nov-2025' },
+  { name: 'GitHub Copilot', date: 'Nov-2025', url: 'https://learn.microsoft.com/en-us/users/vijaykakade-6850/credentials/aa58e6894a26bee6?ref=https%3A%2F%2Fwww.linkedin.com%2F' },
   { name: 'Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate', date: 'Sept-2025' },
   { name: 'Oracle Cloud Infrastructure 2025 Certified Generative AI Professional', date: 'Sept-2025' },
   { name: 'Oracle AI Vector Search Certified Professional', date: 'Sept-2025' },
@@ -32,7 +32,15 @@ export default function Certifications() {
             >
               <div className="flex items-center flex-1">
                 <div className="h-3 w-3 rounded-full bg-white/50 mr-4 flex-shrink-0" />
-                <p className="text-neutral-200 font-medium leading-snug">{cert.name}</p>
+                <p className="text-neutral-200 font-medium leading-snug">
+                  {cert.url ? (
+                    <a href={cert.url} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:underline transition-colors">
+                      {cert.name}
+                    </a>
+                  ) : (
+                    cert.name
+                  )}
+                </p>
               </div>
               
               <div className="flex-shrink-0 sm:ml-4">
