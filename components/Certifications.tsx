@@ -2,7 +2,7 @@ import React from 'react';
 
 const certs = [
   { name: 'GitHub Copilot', date: 'Nov-2025', url: 'https://learn.microsoft.com/en-us/users/vijaykakade-6850/credentials/aa58e6894a26bee6?ref=https%3A%2F%2Fwww.linkedin.com%2F' },
-  { name: 'Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate', date: 'Sept-2025' },
+  { name: 'Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate', date: 'Sept-2025', url: 'https://catalog-education.oracle.com/ords/certview/sharebadge?id=C5DAA59D651C908A81252B3DC6876DEF7A07E056675CB6AC10A898E0B98FC2C3' },
   { name: 'Oracle Cloud Infrastructure 2025 Certified Generative AI Professional', date: 'Sept-2025' },
   { name: 'Oracle AI Vector Search Certified Professional', date: 'Sept-2025' },
   { name: 'Oracle Cloud Infrastructure 2025 Certified DevOps Professional', date: 'Sept-2025' },
