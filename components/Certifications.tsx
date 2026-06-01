@@ -7,7 +7,7 @@ const certs = [
   { name: 'Oracle AI Vector Search Certified Professional', date: 'Sept-2025' },
   { name: 'Oracle Cloud Infrastructure 2025 Certified DevOps Professional', date: 'Sept-2025' },
   { name: 'Oracle Cloud Infrastructure 2025 Certified Multicloud Architect Professional', date: 'Sept-2025' },
-  { name: 'Oracle Cloud Infrastructure 2025 Certified Architect Associate', date: 'Sept-2025' },
+  { name: 'Oracle Cloud Infrastructure 2025 Certified Architect Associate', date: 'Sept-2025', url: 'https://catalog-education.oracle.com/ords/certview/sharebadge?id=951C3B368D3E15515AAD57BA5C176CA110DFE4AD536C83D70E91DA98C94E6213' },
   { name: 'Redhat Certified Engineer', date: 'Aug-2012' },
   { name: 'Novell Certified Network +', date: 'Feb-2007' },
   { name: 'Microsoft Certified IT Professional', date: 'Feb-2007' }
