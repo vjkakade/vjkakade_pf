@@ -22,35 +22,54 @@ export const blogs: BlogPost[] = [
     coverImage: '/blog/meta-ai-ads-cover.png',
     content: `
       <p class="lead text-xl text-neutral-300 mb-8 leading-relaxed">
-        Imagine launching a complete, hyper-targeted digital marketing campaign without ever opening Meta Ads Manager. No complex dashboard configurations, no back-and-forth email chains with a digital marketing agency, and absolutely zero coding. Instead, you open your favorite AI chat interface, type a prompt in plain natural language, and watch the campaign build itself.
+        Imagine launching a complete, hyper-targeted digital marketing campaign without ever opening Meta Ads Manager. No complex dashboard configurations, no back-and-forth email chains with an agency, and absolutely zero coding. Instead, you open your favorite AI chat interface, type a prompt in plain natural language, and watch the campaign build itself.
       </p>
       
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        This isn’t a concept for the distant future; it’s happening right now.
+        This isn’t a concept for the distant future; it is happening right now.
       </p>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Meta has quietly introduced <strong>Meta Ads AI Connectors</strong>, a feature that links Meta’s advertising ecosystem directly to foundational AI tools like Claude and ChatGPT. By eliminating the technical friction of APIs and manual setups, this shift is democratizing ad management and redrawing the boundaries for brands and traditional marketing agencies alike.
+        Meta has quietly introduced <strong>Meta Ads AI Connectors</strong>, a feature that links Meta’s advertising ecosystem directly to foundational AI tools like Claude and ChatGPT. By eliminating the technical friction of traditional workflows, this shift is democratizing ad management and redrawing the boundaries for brands and performance marketing agencies alike.
       </p>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Watch the Breakdown</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Before diving into the mechanics, watch this insightful breakdown of how this feature instantly disrupts traditional agency models:
+      </p>
+
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 bg-black/40 shadow-inner">
+        <video controls class="w-full h-auto aspect-video object-contain" preload="metadata">
+          <source src="/blog/meta-ai-ads-breakdown.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
       <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">What Are Meta Ads AI Connectors?</h2>
       <p class="text-neutral-300 mb-6 leading-relaxed">
         At its core, Meta Ads AI Connectors leverage Meta’s Model Context Protocol (MCP) server and Command Line Interface (CLI) to turn generative AI models into autonomous ad agents. Instead of acting as a standalone chat assistant, the AI can now authenticate directly into your Meta Business Account and execute complex operational tasks based on simple conversational commands.
       </p>
 
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <img src="/blog/meta-mcp-architecture.png" alt="MCP Meta Ads Architecture Diagram" class="w-full h-auto" />
+        <div class="p-4 bg-white/5 text-xs text-neutral-400 border-t border-white/10 italic text-center">
+          Architectural diagram showing an AI Interface (Claude/ChatGPT) connecting via Model Context Protocol (MCP) directly to the Meta Ads API Stack
+        </div>
+      </div>
+
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        What makes this feature a paradigm shift is its scope. It isn’t just an assistant that gives you generic strategic advice inside Ads Manager; it enables your chosen AI tool to handle the <strong>full operational stack</strong>:
+        What makes this feature a paradigm shift is its scope. It isn’t just an assistant that gives you generic strategic advice; it enables your chosen AI tool to handle the <strong>full operational stack</strong>:
       </p>
 
       <ul class="list-disc pl-6 text-neutral-300 space-y-3 mb-8">
         <li><strong>Campaign Management:</strong> Build, edit, and optimize ads, ad sets, and entire campaigns using natural language.</li>
         <li><strong>Comprehensive Reporting:</strong> Surface deep performance insights and pull tailored reports directly into your chat workflow.</li>
         <li><strong>Catalog Management:</strong> Dynamically create product catalogs, troubleshoot backend data feeds, and map product details.</li>
-        <li><strong>Signal Diagnostics:</strong> Monitor pixel health, evaluate conversion APIs, and maintain the quality of data signals to ensure optimal ad delivery.</li>
+        <li><strong>Signal Diagnostics:</strong> Monitor pixel health, evaluate conversion APIs, and maintain data signal quality to ensure optimal ad delivery.</li>
       </ul>
 
       <blockquote class="border-l-4 border-white/20 pl-6 italic text-neutral-400 my-8 py-2">
-        <strong>The Reality Check:</strong> Getting started with these connectors takes minutes, not days. Because it relies on natural language interfaces and direct protocol connections, there is zero developer or API setup required from the end user.
+        <strong>The Reality Check:</strong> Getting started with these connectors takes minutes, not days. Because it relies on natural language interfaces and direct protocol connections, there is zero developer or custom API setup required from the end user.
       </blockquote>
 
       <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">The Collapse of the Operational Moat</h2>
@@ -74,15 +93,49 @@ export const blogs: BlogPost[] = [
         The AI can cross-reference the brand's website, analyze historical audience data, draft the creative angles, establish the parameters, and push the campaign live. The manual overhead of structuring the ad account vanishes. When execution becomes automated, the traditional "trust us, we know the algorithm" pitch completely loses its value.
       </p>
 
-      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Key Takeaways for Businesses and Marketers</h2>
-      <div class="p-6 rounded-2xl bg-white/5 border border-white/10 my-8">
-        <h4 class="text-lg font-bold text-white mb-4">Core Takeaways:</h4>
-        <ul class="list-disc pl-6 text-neutral-300 space-y-3">
-          <li><strong>Zero-Friction Execution:</strong> Small businesses and lean startups can now deploy and manage enterprise-grade campaign structures directly through an AI interface without technical barriers.</li>
-          <li><strong>Automated Full-Stack Operations:</strong> The connectors go beyond basic ad creation to automate reporting, complex data feed troubleshooting, and signal health diagnostics.</li>
-          <li><strong>The Shift from Execution to Strategy:</strong> Operational tasks are becoming fully commoditized. The true differentiator for brands is no longer <em>how</em> an ad is configured, but the creative strategy behind it.</li>
-        </ul>
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <img src="/blog/dashboard-vs-ai-prompt.png" alt="Ad Dashboard vs AI Prompt Box comparison" class="w-full h-auto" />
+        <div class="p-4 bg-white/5 text-xs text-neutral-400 border-t border-white/10 italic text-center">
+          A split screen showing a traditional complex ad dashboard full of charts vs. a clean, simple AI text prompt box generating a campaign
+        </div>
       </div>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Key Takeaways for Businesses and Marketers</h2>
+
+      <div class="overflow-x-auto my-8 rounded-xl border border-white/10 bg-white/5 shadow-md">
+        <table class="min-w-full divide-y divide-white/10 text-sm text-left">
+          <thead>
+            <tr class="bg-white/5">
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">Feature Impact</th>
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">Traditional Workflow</th>
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">AI-Connector Workflow</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10 text-neutral-300">
+            <tr>
+              <td class="px-6 py-4 font-semibold text-white">Setup Time</td>
+              <td class="px-6 py-4">Days of developer API mapping & tracking setup</td>
+              <td class="px-6 py-4">Minutes via natural language protocol authentication</td>
+            </tr>
+            <tr class="bg-white/[0.01]">
+              <td class="px-6 py-4 font-semibold text-white">Execution Cost</td>
+              <td class="px-6 py-4">Expensive monthly agency retainers / specialized team overhead</td>
+              <td class="px-6 py-4">Free utility layer managed inside your daily AI workspace</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-semibold text-white">Primary Value Asset</td>
+              <td class="px-6 py-4">Technical dashboard expertise & campaign structuring</td>
+              <td class="px-6 py-4">Deep creative strategy, product positioning, & consumer empathy</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="list-disc pl-6 text-neutral-300 space-y-3 mb-8">
+        <li><strong>Zero-Friction Execution:</strong> Small businesses and lean startups can now deploy and manage enterprise-grade campaign structures directly through an AI interface without technical barriers.</li>
+        <li><strong>Automated Full-Stack Operations:</strong> The connectors go beyond basic ad creation to automate reporting, complex data feed troubleshooting, and signal health diagnostics.</li>
+        <li><strong>The Shift from Execution to Strategy:</strong> Operational tasks are becoming fully commoditized. The true differentiator for brands is no longer <em>how</em> an ad is configured, but the creative strategy behind it.</li>
+      </ul>
 
       <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Conclusion: The New Agency Playbook</h2>
       <p class="text-neutral-300 mb-6 leading-relaxed">
@@ -101,10 +154,10 @@ export const blogs: BlogPost[] = [
         <span class="text-neutral-500 text-sm">Sources & Further Reading:</span>
         <div class="flex flex-col gap-2 mt-2 text-sm">
           <a href="https://developers.facebook.com/" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors flex items-center">
-            🔗 Meta for Developers: Official API and System Integrations
+            🔗 Meta for Developers: Model Context Protocol (MCP) Integration Guidelines
           </a>
-          <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors flex items-center">
-            🔗 Model Context Protocol (MCP) Standards and Servers
+          <a href="https://github.com/vjkakade" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors flex items-center">
+            🔗 GitHub Repository: Meta Ads CLI Tools and Developer Documentation
           </a>
         </div>
       </div>
