@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Mail, MapPin } from 'lucide-react';
 
 const GithubIcon = ({ className }: { className?: string }) => (
@@ -78,9 +79,9 @@ export default function Contact() {
             <a aria-label="Visit Instagram Profile" href="https://instagram.com/vjkakade" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-all hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] text-white">
                 <InstagramIcon className="w-6 h-6" />
             </a>
-            <a aria-label="Visit Blog Profile" href="https://www.knowledgehut.com/blog/author/vijay-kakade" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-all hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] text-white">
+            <Link aria-label="Visit Blog Profile" href="/blog" className="p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-all hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] text-white">
                 <BlogIcon className="w-6 h-6" />
-            </a>
+            </Link>
             <a aria-label="View Photo Gallery" href="/gallery" className="p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-all hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] text-white">
                 <ImageIcon className="w-6 h-6" />
             </a>
