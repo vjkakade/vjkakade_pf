@@ -51,13 +51,13 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
       </div>
 
       {/* Main Content Area */}
-      <div className="max-w-4xl mx-auto px-8 pb-24 relative -mt-32 z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-8 pb-24 relative -mt-20 md:-mt-32 z-10">
         
         <motion.article 
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="rounded-3xl bg-white/5 border border-white/10 p-8 md:p-12 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+          className="rounded-3xl bg-white/5 border border-white/10 p-6 md:p-12 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
         >
           {/* Category Badging */}
           <div className="mb-6">

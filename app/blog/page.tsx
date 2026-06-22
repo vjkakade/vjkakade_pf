@@ -43,7 +43,7 @@ export default function BlogIndex() {
 
   return (
     <main className="min-h-screen bg-[#121212] text-white selection:bg-white/30 font-sans">
-      <div className="max-w-7xl mx-auto px-8 py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-12 md:py-24">
         
         {/* Header Back Navigation */}
         <div className="mb-12">
