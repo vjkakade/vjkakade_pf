@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { ArrowLeft, Calendar, Clock, Share2, Check, Tag } from 'lucide-react';
 import { BlogPost } from '@/utils/blogs';
 import { playClickSound } from '@/utils/sound';
@@ -15,6 +15,14 @@ interface BlogDetailClientProps {
 export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClientProps) {
   const [copied, setCopied] = useState(false);
 
+  // Dynamic Scroll Progress Bar
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   const handleShare = () => {
     if (typeof window === 'undefined') return;
     navigator.clipboard.writeText(window.location.href);
@@ -24,24 +32,34 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
   };
 
   return (
-    <main className="min-h-screen bg-[#121212] text-white selection:bg-white/30 font-sans">
+    <main className="min-h-screen bg-[#121212] text-white selection:bg-white/30 font-sans relative overflow-hidden">
       
+      {/* Scroll Progress Indicator */}
+      <motion.div 
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-blue-500 to-teal-500 origin-left z-[100]"
+        style={{ scaleX }}
+      />
+
+      {/* Ambient Backdrops */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-purple-500/10 blur-[150px] pointer-events-none z-0" />
+      <div className="absolute bottom-[30vh] right-1/4 w-[500px] h-[500px] rounded-full bg-blue-500/10 blur-[130px] pointer-events-none z-0" />
+
       {/* Cover Image Header */}
-      <div className="relative w-full h-[40vh] md:h-[50vh] bg-neutral-900 overflow-hidden">
+      <div className="relative w-full h-[45vh] md:h-[55vh] bg-neutral-900 overflow-hidden z-10 border-b border-white/5">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img 
           src={blog.coverImage} 
           alt={blog.title} 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transform scale-102 filter brightness-[0.85]"
         />
         {/* Ambient Dark Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-[#121212]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-[#121212]" />
         
         {/* Back navigation over image */}
         <div className="absolute top-8 left-8 z-30">
           <Link 
             href="/blog" 
-            className="inline-flex items-center px-4 py-2 rounded-full bg-black/40 hover:bg-black/60 border border-white/10 hover:border-white/20 text-neutral-300 hover:text-white transition-all backdrop-blur-md group"
+            className="inline-flex items-center px-4.5 py-2.5 rounded-full bg-black/40 hover:bg-black/60 border border-white/10 hover:border-white/20 text-neutral-300 hover:text-white transition-all backdrop-blur-md group shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
             onClick={playClickSound}
           >
             <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
@@ -51,29 +69,32 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
       </div>
 
       {/* Main Content Area */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-8 pb-24 relative -mt-20 md:-mt-32 z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-8 pb-24 relative -mt-36 md:-mt-44 z-20">
         
         <motion.article 
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 35 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="rounded-3xl bg-white/5 border border-white/10 p-6 md:p-12 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
+          className="rounded-3xl bg-gradient-to-b from-white/[0.07] to-white/[0.01] border border-white/10 p-6 sm:p-10 md:p-14 backdrop-blur-md shadow-[0_30px_60px_rgba(0,0,0,0.6)] relative overflow-hidden"
         >
+          {/* Accent border highlight */}
+          <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
           {/* Category Badging */}
           <div className="mb-6">
-            <span className="text-xs font-bold uppercase tracking-widest text-neutral-300 bg-white/10 border border-white/10 px-3.5 py-1.5 rounded-full">
+            <span className="text-xs font-bold uppercase tracking-widest text-neutral-300 bg-white/10 border border-white/10 px-3.5 py-1.5 rounded-full shadow-[0_0_15px_rgba(255,255,255,0.05)]">
               {blog.category}
             </span>
           </div>
 
           {/* Title */}
-          <h1 className="text-3xl md:text-5xl font-brand font-extrabold tracking-tight text-white mb-6 leading-tight">
+          <h1 className="text-3xl md:text-5xl font-brand font-extrabold tracking-tight text-white mb-6 leading-tight bg-gradient-to-b from-white via-neutral-100 to-neutral-300 bg-clip-text text-transparent">
             {blog.title}
           </h1>
 
           {/* Meta Info */}
           <div className="flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-white/10 mb-8 text-neutral-400">
-            <div className="flex items-center text-sm">
+            <div className="flex items-center text-sm font-medium">
               <Calendar className="w-4 h-4 mr-2 text-neutral-500" />
               <span>{blog.date}</span>
               <span className="mx-3 w-1 h-1 rounded-full bg-neutral-700" />
@@ -84,7 +105,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
             {/* Share Button */}
             <button
               onClick={handleShare}
-              className="inline-flex items-center text-xs font-semibold px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer"
+              className="inline-flex items-center text-xs font-bold px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/25 hover:text-white transition-all cursor-pointer shadow-[0_2px_10px_rgba(0,0,0,0.2)]"
             >
               {copied ? (
                 <>
@@ -93,7 +114,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
                 </>
               ) : (
                 <>
-                  <Share2 className="w-3.5 h-3.5 mr-1.5" />
+                  <Share2 className="w-3.5 h-3.5 mr-1.5 text-neutral-400 group-hover:text-white" />
                   Copy Link
                 </>
               )}
@@ -112,7 +133,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
             {blog.tags.map((tag) => (
               <span 
                 key={tag}
-                className="text-xs font-medium bg-white/5 border border-white/10 px-3 py-1.5 rounded-md text-neutral-400 hover:text-white transition-colors"
+                className="text-xs font-semibold bg-white/5 border border-white/10 px-3 py-1.5 rounded-md text-neutral-400 hover:text-white transition-colors"
               >
                 #{tag}
               </span>
@@ -123,14 +144,14 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
 
         {/* Related Blogs Section */}
         {relatedBlogs.length > 0 && (
-          <div className="mt-20">
-            <h3 className="text-2xl font-brand font-bold text-white mb-8">Related Articles</h3>
+          <div className="mt-24 relative">
+            <h3 className="text-2xl font-brand font-bold text-white mb-8 border-b border-white/5 pb-4">Related Articles</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {relatedBlogs.map((relBlog) => (
                 <Link 
                   key={relBlog.slug}
                   href={`/blog/${relBlog.slug}`}
-                  className="group flex flex-col h-full rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 overflow-hidden"
+                  className="group flex flex-col h-full rounded-2xl bg-gradient-to-br from-white/[0.04] to-transparent border border-white/10 hover:border-white/20 hover:bg-white/[0.07] transition-all duration-500 overflow-hidden hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
                   onClick={playClickSound}
                 >
                   <div className="relative aspect-video overflow-hidden">
@@ -147,7 +168,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
                       <span className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-2 block">
                         {relBlog.category}
                       </span>
-                      <h4 className="text-lg font-bold text-white mb-2 leading-snug line-clamp-2 group-hover:text-neutral-200 transition-colors">
+                      <h4 className="text-lg font-bold text-white mb-2 leading-snug line-clamp-2 group-hover:text-purple-400 transition-colors">
                         {relBlog.title}
                       </h4>
                     </div>

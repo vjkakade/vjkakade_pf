@@ -41,9 +41,38 @@ export default function BlogIndex() {
     return filteredBlogs.slice(1);
   }, [filteredBlogs, selectedCategory, searchQuery]);
 
+  // Framer Motion Animation Variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.6, 
+        ease: [0.16, 1, 0.3, 1] as const
+      } 
+    }
+  };
+
   return (
-    <main className="min-h-screen bg-[#121212] text-white selection:bg-white/30 font-sans">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-12 md:py-24">
+    <main className="min-h-screen bg-[#121212] text-white selection:bg-white/30 font-sans relative overflow-hidden">
+      
+      {/* Background Radial Glow Elements */}
+      <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-purple-500/10 blur-[130px] pointer-events-none z-0" />
+      <div className="absolute bottom-[20%] right-[-10%] w-[700px] h-[700px] rounded-full bg-blue-500/10 blur-[150px] pointer-events-none z-0" />
+      <div className="absolute top-[40vh] left-[50%] -translate-x-1/2 w-[500px] h-[500px] rounded-full bg-white/[0.02] blur-[120px] pointer-events-none z-0" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-12 md:py-24 relative z-10">
         
         {/* Header Back Navigation */}
         <div className="mb-12">
@@ -55,9 +84,10 @@ export default function BlogIndex() {
             <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
             Back to Home
           </Link>
+          
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <h1 className="text-5xl md:text-7xl font-brand font-extrabold tracking-tight mb-4">
+              <h1 className="text-5xl md:text-7xl font-brand font-extrabold tracking-tight mb-4 bg-gradient-to-b from-white via-neutral-100 to-neutral-400 bg-clip-text text-transparent">
                 Writings.
               </h1>
               <p className="text-xl text-neutral-400 max-w-2xl leading-relaxed">
@@ -70,7 +100,7 @@ export default function BlogIndex() {
         {/* Search and Categories Bar */}
         <div className="flex flex-col md:flex-row gap-6 items-center justify-between mb-16 pb-8 border-b border-white/5">
           {/* Categories */}
-          <div className="flex flex-wrap gap-2 w-full md:w-auto">
+          <div className="flex flex-wrap gap-2.5 w-full md:w-auto">
             {categories.map((category) => (
               <button
                 key={category}
@@ -78,10 +108,10 @@ export default function BlogIndex() {
                   setSelectedCategory(category);
                   playClickSound();
                 }}
-                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
                   selectedCategory === category
-                    ? 'bg-white text-black font-semibold shadow-[0_0_15px_rgba(255,255,255,0.15)]'
-                    : 'bg-white/5 border border-white/10 text-neutral-400 hover:text-white hover:bg-white/10'
+                    ? 'bg-white text-black font-semibold shadow-[0_0_20px_rgba(255,255,255,0.25)] border border-white'
+                    : 'bg-white/5 border border-white/10 text-neutral-400 hover:text-white hover:bg-white/10 hover:border-white/20'
                 }`}
               >
                 {category}
@@ -99,7 +129,7 @@ export default function BlogIndex() {
               placeholder="Search articles..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white/5 border border-white/10 hover:border-white/20 focus:border-white/30 text-white rounded-full py-3 pl-11 pr-4 text-sm focus:outline-none transition-all placeholder:text-neutral-500"
+              className="w-full bg-white/5 border border-white/10 hover:border-white/20 focus:border-white/30 text-white rounded-full py-3 pl-11 pr-4 text-sm focus:outline-none transition-all placeholder:text-neutral-500 focus:bg-white/[0.08] focus:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
             />
           </div>
         </div>
@@ -107,36 +137,36 @@ export default function BlogIndex() {
         {/* Featured Post (Only when viewing "All" and no search query) */}
         {featuredBlog && selectedCategory === 'All' && searchQuery === '' && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-16"
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-20"
           >
             <Link 
               href={`/blog/${featuredBlog.slug}`}
-              className="group grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-500 block"
+              className="group grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 md:p-8 rounded-3xl bg-gradient-to-br from-white/[0.06] to-transparent border border-white/10 hover:border-white/25 hover:bg-white/[0.09] transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] block relative overflow-hidden"
               onClick={playClickSound}
             >
               {/* Image Section */}
-              <div className="lg:col-span-7 overflow-hidden rounded-2xl relative aspect-video lg:aspect-auto min-h-[280px] md:min-h-[380px]">
+              <div className="lg:col-span-7 overflow-hidden rounded-2xl relative aspect-video lg:aspect-auto min-h-[300px] md:min-h-[400px]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
                   src={featuredBlog.coverImage} 
                   alt={featuredBlog.title} 
                   className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
               </div>
 
               {/* Text Section */}
               <div className="lg:col-span-5 flex flex-col justify-between py-2">
                 <div>
                   <div className="flex items-center gap-3 mb-6">
-                    <span className="text-xs font-bold uppercase tracking-widest text-neutral-400 bg-white/5 border border-white/10 px-3 py-1 rounded-full">
+                    <span className="text-xs font-bold uppercase tracking-widest text-neutral-300 bg-white/10 border border-white/10 px-3.5 py-1.5 rounded-full">
                       {featuredBlog.category}
                     </span>
-                    <span className="text-xs font-bold uppercase tracking-widest text-amber-400/80 bg-amber-400/5 border border-amber-400/10 px-3 py-1 rounded-full">
-                      Featured
+                    <span className="text-xs font-bold uppercase tracking-widest text-purple-400 bg-purple-500/10 border border-purple-500/20 px-3.5 py-1.5 rounded-full shadow-[0_0_15px_rgba(168,85,247,0.1)]">
+                      Featured Post
                     </span>
                   </div>
                   <h2 className="text-2xl md:text-4xl font-brand font-bold text-white mb-4 leading-tight group-hover:text-neutral-200 transition-colors">
@@ -154,7 +184,7 @@ export default function BlogIndex() {
                     <Clock className="w-4 h-4 mr-2" />
                     <span>{featuredBlog.readTime}</span>
                   </div>
-                  <span className="inline-flex items-center text-white font-medium group-hover:underline">
+                  <span className="inline-flex items-center text-white font-medium group-hover:text-purple-400 transition-colors">
                     Read Article 
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </span>
@@ -179,17 +209,21 @@ export default function BlogIndex() {
               </h3>
             )}
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {gridBlogs.map((blog, idx) => (
+            <motion.div 
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {gridBlogs.map((blog) => (
                 <motion.div
                   key={blog.slug}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.05, duration: 0.5 }}
+                  variants={cardVariants}
+                  className="h-full"
                 >
                   <Link 
                     href={`/blog/${blog.slug}`}
-                    className="group flex flex-col h-full rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 overflow-hidden"
+                    className="group flex flex-col h-full rounded-2xl bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/10 hover:border-white/20 hover:bg-white/[0.08] transition-all duration-500 overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
                     onClick={playClickSound}
                   >
                     {/* Card Cover Image */}
@@ -206,11 +240,11 @@ export default function BlogIndex() {
                     <div className="flex flex-col justify-between p-6 flex-grow">
                       <div>
                         <div className="mb-4">
-                          <span className="text-xs font-bold uppercase tracking-widest text-neutral-500">
+                          <span className="text-xs font-bold uppercase tracking-widest text-neutral-400 bg-white/5 border border-white/10 px-2.5 py-1 rounded-full">
                             {blog.category}
                           </span>
                         </div>
-                        <h4 className="text-xl font-bold text-white mb-3 leading-snug line-clamp-2 group-hover:text-neutral-200 transition-colors">
+                        <h4 className="text-xl font-bold text-white mb-3 leading-snug line-clamp-2 group-hover:text-purple-400 transition-colors">
                           {blog.title}
                         </h4>
                         <p className="text-neutral-400 text-sm leading-relaxed mb-6 line-clamp-3">
@@ -228,14 +262,14 @@ export default function BlogIndex() {
                   </Link>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         ) : (
           <div className="text-center py-24 rounded-3xl bg-white/5 border border-white/10">
             <p className="text-neutral-500 text-lg">No articles found matching your criteria.</p>
             <button 
               onClick={() => { setSelectedCategory('All'); setSearchQuery(''); playClickSound(); }}
-              className="mt-4 px-6 py-2 rounded-full border border-white/10 text-white hover:bg-white/5 transition-colors"
+              className="mt-4 px-6 py-2 rounded-full border border-white/10 text-white hover:bg-white/5 transition-colors cursor-pointer"
             >
               Reset Filters
             </button>
