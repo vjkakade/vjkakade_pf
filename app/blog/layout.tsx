@@ -10,7 +10,7 @@ export default function BlogLayout({
     <>
       {/* Google tag (gtag.js) */}
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-YT0EKLVWRY"
+        src="https://www.googletagmanager.com/gtag/js?id=AW-18263681135"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
@@ -19,7 +19,7 @@ export default function BlogLayout({
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'G-YT0EKLVWRY');
+          gtag('config', 'AW-18263681135');
         `}
       </Script>
       {children}
