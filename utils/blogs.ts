@@ -33,18 +33,6 @@ export const blogs: BlogPost[] = [
         Meta has quietly introduced <strong>Meta Ads AI Connectors</strong>, a feature that links Meta’s advertising ecosystem directly to foundational AI tools like Claude and ChatGPT. By eliminating the technical friction of traditional workflows, this shift is democratizing ad management and redrawing the boundaries for brands and performance marketing agencies alike.
       </p>
 
-      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Watch the Breakdown</h2>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Before diving into the mechanics, watch this insightful breakdown of how this feature instantly disrupts traditional agency models:
-      </p>
-
-      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 bg-black/40 shadow-inner">
-        <video controls class="w-full h-auto aspect-video object-contain" preload="metadata">
-          <source src="/blog/meta-ai-ads-breakdown.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
       <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">What Are Meta Ads AI Connectors?</h2>
       <p class="text-neutral-300 mb-6 leading-relaxed">
         At its core, Meta Ads AI Connectors leverage Meta’s Model Context Protocol (MCP) server and Command Line Interface (CLI) to turn generative AI models into autonomous ad agents. Instead of acting as a standalone chat assistant, the AI can now authenticate directly into your Meta Business Account and execute complex operational tasks based on simple conversational commands.
