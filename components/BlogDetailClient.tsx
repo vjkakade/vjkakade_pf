@@ -34,15 +34,18 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
   return (
     <main className="min-h-screen bg-[#121212] text-white selection:bg-white/30 font-sans relative overflow-hidden">
       
-      {/* Scroll Progress Indicator */}
+      {/* Scroll Progress Indicator with glow */}
       <motion.div 
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-blue-500 to-teal-500 origin-left z-[100]"
+        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-purple-500 via-blue-500 to-teal-400 origin-left z-[100] shadow-[0_1px_10px_rgba(168,85,247,0.5)]"
         style={{ scaleX }}
       />
 
       {/* Ambient Backdrops */}
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-purple-500/10 blur-[150px] pointer-events-none z-0" />
       <div className="absolute bottom-[30vh] right-1/4 w-[500px] h-[500px] rounded-full bg-blue-500/10 blur-[130px] pointer-events-none z-0" />
+      
+      {/* Cyber Grid Pattern Background Overlay */}
+      <div className="absolute inset-0 grid-bg opacity-30 z-0 pointer-events-none" />
 
       {/* Cover Image Header */}
       <div className="relative w-full h-[45vh] md:h-[55vh] bg-neutral-900 overflow-hidden z-10 border-b border-white/5">
@@ -140,6 +143,34 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
             ))}
           </div>
 
+          {/* Author Profile Section */}
+          <div className="mt-16 pt-10 border-t border-white/10 flex flex-col sm:flex-row items-center gap-6 text-left relative z-10">
+            <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-purple-500 to-blue-500 p-0.5 flex-shrink-0 shadow-[0_0_20px_rgba(168,85,247,0.2)]">
+              <div className="w-full h-full rounded-full bg-[#18181b] flex items-center justify-center font-brand font-bold text-xl text-white">
+                VK
+              </div>
+            </div>
+            <div className="flex-grow">
+              <h4 className="text-xl font-brand font-bold text-white mb-2">Vijay Kakade</h4>
+              <p className="text-neutral-400 text-sm leading-relaxed mb-4">
+                Cloud, AI & DevOps Engineer with 12+ years of experience building secure, scalable, and automated cloud systems. Specialized in Multi-Cloud architectures and Generative AI workflows.
+              </p>
+              <div className="flex items-center gap-4">
+                <a href="https://www.linkedin.com/in/vjkakade/" target="_blank" rel="noopener noreferrer" className="text-xs text-purple-400 hover:text-purple-300 font-semibold transition-colors">
+                  LinkedIn
+                </a>
+                <span className="text-neutral-600">•</span>
+                <a href="https://github.com/vjkakade" target="_blank" rel="noopener noreferrer" className="text-xs text-purple-400 hover:text-purple-300 font-semibold transition-colors">
+                  GitHub
+                </a>
+                <span className="text-neutral-600">•</span>
+                <a href="mailto:vijaykakade@live.com" className="text-xs text-purple-400 hover:text-purple-300 font-semibold transition-colors">
+                  Get in Touch
+                </a>
+              </div>
+            </div>
+          </div>
+
         </motion.article>
 
         {/* Related Blogs Section */}
@@ -151,28 +182,29 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
                 <Link 
                   key={relBlog.slug}
                   href={`/blog/${relBlog.slug}`}
-                  className="group flex flex-col h-full rounded-2xl bg-gradient-to-br from-white/[0.04] to-transparent border border-white/10 hover:border-white/20 hover:bg-white/[0.07] transition-all duration-500 overflow-hidden hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
+                  className="group flex flex-col h-full rounded-2xl bg-gradient-to-br from-white/[0.06] to-white/[0.01] border border-white/10 hover:border-purple-500/20 hover:bg-white/[0.08] transition-all duration-500 overflow-hidden hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(168,85,247,0.08)] backdrop-blur-md"
                   onClick={playClickSound}
                 >
-                  <div className="relative aspect-video overflow-hidden">
+                  <div className="relative aspect-video overflow-hidden border-b border-white/5">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img 
                       src={relBlog.coverImage} 
                       alt={relBlog.title} 
-                      className="w-full h-full object-cover transform group-hover:scale-102 transition-transform duration-500"
+                      className="w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-500"
                       loading="lazy"
                     />
                   </div>
-                  <div className="p-6 flex flex-col justify-between flex-grow">
-                    <div>
-                      <span className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-2 block">
+                  <div className="p-6 flex flex-col justify-between flex-grow relative">
+                    <div className="absolute top-0 right-0 w-[120px] h-[120px] rounded-full bg-purple-500/0 blur-[50px] pointer-events-none group-hover:bg-purple-500/5 transition-colors duration-500" />
+                    <div className="relative z-10">
+                      <span className="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-2 block">
                         {relBlog.category}
                       </span>
-                      <h4 className="text-lg font-bold text-white mb-2 leading-snug line-clamp-2 group-hover:text-purple-400 transition-colors">
+                      <h4 className="text-lg font-bold text-white mb-2 leading-snug line-clamp-2 group-hover:text-purple-300 transition-colors">
                         {relBlog.title}
                       </h4>
                     </div>
-                    <div className="flex items-center text-xs text-neutral-500 mt-4 pt-4 border-t border-white/5">
+                    <div className="flex items-center text-xs text-neutral-500 mt-4 pt-4 border-t border-white/5 relative z-10">
                       <span>{relBlog.date}</span>
                       <span className="mx-2 w-1 h-1 rounded-full bg-neutral-800" />
                       <span>{relBlog.readTime}</span>

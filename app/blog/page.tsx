@@ -71,6 +71,9 @@ export default function BlogIndex() {
       <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-purple-500/10 blur-[130px] pointer-events-none z-0" />
       <div className="absolute bottom-[20%] right-[-10%] w-[700px] h-[700px] rounded-full bg-blue-500/10 blur-[150px] pointer-events-none z-0" />
       <div className="absolute top-[40vh] left-[50%] -translate-x-1/2 w-[500px] h-[500px] rounded-full bg-white/[0.02] blur-[120px] pointer-events-none z-0" />
+      
+      {/* Cyber Grid Pattern Background Overlay */}
+      <div className="absolute inset-0 grid-bg opacity-35 z-0 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-12 md:py-24 relative z-10">
         
@@ -110,7 +113,7 @@ export default function BlogIndex() {
                 }}
                 className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
                   selectedCategory === category
-                    ? 'bg-white text-black font-semibold shadow-[0_0_20px_rgba(255,255,255,0.25)] border border-white'
+                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold shadow-[0_0_20px_rgba(168,85,247,0.35)] border border-purple-500/30'
                     : 'bg-white/5 border border-white/10 text-neutral-400 hover:text-white hover:bg-white/10 hover:border-white/20'
                 }`}
               >
@@ -129,7 +132,7 @@ export default function BlogIndex() {
               placeholder="Search articles..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white/5 border border-white/10 hover:border-white/20 focus:border-white/30 text-white rounded-full py-3 pl-11 pr-4 text-sm focus:outline-none transition-all placeholder:text-neutral-500 focus:bg-white/[0.08] focus:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
+              className="w-full bg-white/5 border border-white/10 hover:border-white/20 focus:border-purple-500/50 text-white rounded-full py-3 pl-11 pr-4 text-sm focus:outline-none transition-all placeholder:text-neutral-500 focus:bg-white/[0.08] focus:shadow-[0_0_25px_rgba(168,85,247,0.15)]"
             />
           </div>
         </div>
@@ -144,22 +147,25 @@ export default function BlogIndex() {
           >
             <Link 
               href={`/blog/${featuredBlog.slug}`}
-              className="group grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 md:p-8 rounded-3xl bg-gradient-to-br from-white/[0.06] to-transparent border border-white/10 hover:border-white/25 hover:bg-white/[0.09] transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] block relative overflow-hidden"
+              className="group grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 md:p-8 rounded-3xl bg-gradient-to-br from-white/[0.07] to-white/[0.01] border border-white/10 hover:border-purple-500/25 hover:bg-white/[0.09] transition-all duration-500 hover:shadow-[0_20px_50px_rgba(168,85,247,0.15)] block relative overflow-hidden backdrop-blur-md"
               onClick={playClickSound}
             >
+              {/* Subtle card internal ambient glow */}
+              <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-purple-500/5 blur-[80px] pointer-events-none group-hover:bg-purple-500/10 transition-colors duration-500" />
+
               {/* Image Section */}
-              <div className="lg:col-span-7 overflow-hidden rounded-2xl relative aspect-video lg:aspect-auto min-h-[300px] md:min-h-[400px]">
+              <div className="lg:col-span-7 overflow-hidden rounded-2xl relative aspect-video lg:aspect-auto min-h-[300px] md:min-h-[400px] border border-white/5">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
                   src={featuredBlog.coverImage} 
                   alt={featuredBlog.title} 
-                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
               </div>
 
               {/* Text Section */}
-              <div className="lg:col-span-5 flex flex-col justify-between py-2">
+              <div className="lg:col-span-5 flex flex-col justify-between py-2 relative z-10">
                 <div>
                   <div className="flex items-center gap-3 mb-6">
                     <span className="text-xs font-bold uppercase tracking-widest text-neutral-300 bg-white/10 border border-white/10 px-3.5 py-1.5 rounded-full">
@@ -169,7 +175,7 @@ export default function BlogIndex() {
                       Featured Post
                     </span>
                   </div>
-                  <h2 className="text-2xl md:text-4xl font-brand font-bold text-white mb-4 leading-tight group-hover:text-neutral-200 transition-colors">
+                  <h2 className="text-2xl md:text-4xl font-brand font-bold text-white mb-4 leading-tight group-hover:text-purple-300 transition-colors">
                     {featuredBlog.title}
                   </h2>
                   <p className="text-neutral-400 text-lg mb-6 leading-relaxed line-clamp-4">
@@ -186,7 +192,7 @@ export default function BlogIndex() {
                   </div>
                   <span className="inline-flex items-center text-white font-medium group-hover:text-purple-400 transition-colors">
                     Read Article 
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1.5 transition-transform" />
                   </span>
                 </div>
               </div>
@@ -223,7 +229,7 @@ export default function BlogIndex() {
                 >
                   <Link 
                     href={`/blog/${blog.slug}`}
-                    className="group flex flex-col h-full rounded-2xl bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/10 hover:border-white/20 hover:bg-white/[0.08] transition-all duration-500 overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+                    className="group flex flex-col h-full rounded-2xl bg-gradient-to-br from-white/[0.06] to-white/[0.01] border border-white/10 hover:border-purple-500/20 hover:bg-white/[0.08] transition-all duration-500 overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(168,85,247,0.08)] backdrop-blur-md"
                     onClick={playClickSound}
                   >
                     {/* Card Cover Image */}
@@ -232,26 +238,29 @@ export default function BlogIndex() {
                       <img 
                         src={blog.coverImage} 
                         alt={blog.title} 
-                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
+                        className="w-full h-full object-cover transform group-hover:scale-103 transition-transform duration-500 ease-out"
                         loading="lazy"
                       />
                     </div>
                     {/* Card Content */}
-                    <div className="flex flex-col justify-between p-6 flex-grow">
-                      <div>
+                    <div className="flex flex-col justify-between p-6 flex-grow relative">
+                      {/* Ambient internal hover indicator */}
+                      <div className="absolute top-0 right-0 w-[150px] h-[150px] rounded-full bg-purple-500/0 blur-[60px] pointer-events-none group-hover:bg-purple-500/5 transition-colors duration-500" />
+                      
+                      <div className="relative z-10">
                         <div className="mb-4">
                           <span className="text-xs font-bold uppercase tracking-widest text-neutral-400 bg-white/5 border border-white/10 px-2.5 py-1 rounded-full">
                             {blog.category}
                           </span>
                         </div>
-                        <h4 className="text-xl font-bold text-white mb-3 leading-snug line-clamp-2 group-hover:text-purple-400 transition-colors">
+                        <h4 className="text-xl font-bold text-white mb-3 leading-snug line-clamp-2 group-hover:text-purple-300 transition-colors">
                           {blog.title}
                         </h4>
                         <p className="text-neutral-400 text-sm leading-relaxed mb-6 line-clamp-3">
                           {blog.excerpt}
                         </p>
                       </div>
-                      <div className="flex items-center text-xs text-neutral-500 pt-4 border-t border-white/5 mt-auto">
+                      <div className="flex items-center text-xs text-neutral-500 pt-4 border-t border-white/5 mt-auto relative z-10">
                         <Calendar className="w-3.5 h-3.5 mr-1.5" />
                         <span>{blog.date}</span>
                         <span className="mx-2.5 w-1 h-1 rounded-full bg-neutral-800" />
@@ -265,7 +274,7 @@ export default function BlogIndex() {
             </motion.div>
           </div>
         ) : (
-          <div className="text-center py-24 rounded-3xl bg-white/5 border border-white/10">
+          <div className="text-center py-24 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md">
             <p className="text-neutral-500 text-lg">No articles found matching your criteria.</p>
             <button 
               onClick={() => { setSelectedCategory('All'); setSearchQuery(''); playClickSound(); }}

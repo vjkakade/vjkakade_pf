@@ -12,6 +12,170 @@ export interface BlogPost {
 
 export const blogs: BlogPost[] = [
   {
+    slug: 'small-model-giant-intellect-vibethinker-3b-scaling-laws',
+    title: 'Small Model, Giant Intellect: How China’s VibeThinker-3B is Defying LLM Scaling Laws',
+    excerpt: 'WeiboAI’s open-source 3-billion parameter model goes toe-to-toe with trillion-parameter giants on competitive math and LeetCode, challenging the bigger-is-better scaling paradigm.',
+    date: 'Jun 23, 2026',
+    readTime: '6 min read',
+    category: 'AI & Data',
+    tags: ['VibeThinker-3B', 'WeiboAI', 'Small Language Models', 'LeetCode Contests', 'STEM Benchmarks'],
+    coverImage: '/blog/vibethinker-3b-cover.png',
+    content: `
+      <p class="lead text-xl text-neutral-300 mb-8 leading-relaxed">
+        The prevailing wisdom in Artificial Intelligence has long been that bigger equals better. For years, the industry has pushed toward massive, trillion-parameter frontier models to achieve breakthroughs in reasoning, mathematics, and complex coding. However, a massive shift is occurring as highly optimized, smaller architectures begin to punch far above their weight.
+      </p>
+      
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Enter <strong>VibeThinker-3B</strong>.
+      </p>
+      
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Developed by WeiboAI—the AI division of Weibo, often referred to as the Twitter of China—this open-source model is only <strong>3 billion parameters</strong>. Yet, it is going toe-to-toe with models hundreds of times its size, proving that extreme efficiency and advanced post-training can replicate the capabilities of tech giants right on your local hardware.
+      </p>
+
+      <h3 class="text-2xl font-brand font-bold text-white mt-12 mb-6">Watch the Technical Breakdown</h3>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Before we dissect the benchmark performance, watch this breakdown of how this small model is reshaping open-source development standards:
+      </p>
+
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)] group aspect-video max-w-3xl mx-auto cursor-pointer">
+        <div class="absolute inset-0 bg-black/45 group-hover:bg-black/25 transition-colors duration-500 z-10"></div>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <div class="w-16 h-16 rounded-full bg-purple-600/90 group-hover:bg-purple-500 text-white flex items-center justify-center shadow-[0_0_30px_rgba(168,85,247,0.5)] group-hover:scale-110 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6 ml-1">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+        </div>
+        <img src="/blog/vibethinker-3b-cover.png" alt="VibeThinker-3B Video Breakdown" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.7] group-hover:scale-[1.02] transition-transform duration-700" />
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-xs text-neutral-300 flex justify-between items-center z-20">
+          <span>📺 VibeThinker-3B: Architecture and Contests Breakdown</span>
+          <span class="bg-purple-500/20 border border-purple-500/30 px-2 py-0.5 rounded text-[10px] uppercase font-bold text-purple-300">9:15</span>
+        </div>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Shaking Up the Global Leaderboards</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        The true shockwave of VibeThinker-3B comes from its reasoning data. WeiboAI utilized a <strong>Systematic Optimizing Principle (SSP)</strong> post-training pipeline, focusing heavily on challenging STEM fields, competitive programming, and complex mathematics.
+      </p>
+
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <img src="/blog/vibethinker-benchmark.png" alt="VibeThinker-3B Benchmarks infographic chart" class="w-full h-auto" />
+        <div class="p-4 bg-white/5 text-xs text-neutral-400 border-t border-white/10 italic text-center">
+          Chart displaying VibeThinker-3B benchmark scores side-by-side with massive multi-trillion parameter models, highlighting its competitive edge on AIME and IMO-AnswerBench
+        </div>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        When tested against massive industry benchmarks and competitive architectures, the 3B model holds its own against top-tier reasoning models like Gemini 3 Pro, Qwen 3.6 Plus, GLM, and Kimi. Its capabilities shine in specialized testing environments:
+      </p>
+
+      <ul class="list-disc pl-6 text-neutral-300 space-y-3 mb-8">
+        <li><strong>Olympiad-Level Mathematics:</strong> High scores across strict math evaluation suites like AIME '25, AIME '26, HMMT '25, and IMO-AnswerBench.</li>
+        <li><strong>The LeetCode Performance:</strong> In recent LeetCode weekly and biweekly programming contests, VibeThinker-3B successfully passed <strong>123 out of 128 problems</strong> on its very first attempt—achieving an astonishing <strong>96.1% acceptance rate</strong>.</li>
+      </ul>
+
+      <blockquote class="border-l-4 border-white/20 pl-6 italic text-neutral-400 my-8 py-2">
+        <strong>Note on Architecture Limitations:</strong> While highly capable at reasoning, the developers note that VibeThinker-3B was explicitly <em>not</em> trained for tool-calling, agent orchestration, or autonomous coding agents. It is designed purely as an elite math and logic reasoning engine.
+      </blockquote>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Why 3 Billion Parameters Matters</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        An elite 3B parameter model is a massive win for localized computing. Up until now, achieving high-end logic and competitive programming intelligence meant paying premium monthly subscriptions for cloud-hosted APIs.
+      </p>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        With a 3B footprint, this level of cognitive power can easily run <strong>locally on a standard consumer laptop</strong>.
+      </p>
+
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <img src="/blog/vibethinker-laptop.png" alt="Lightweight laptop running a local instance of an LLM via Hugging Face" class="w-full h-auto" />
+        <div class="p-4 bg-white/5 text-xs text-neutral-400 border-t border-white/10 italic text-center">
+          Visual depiction of a lightweight laptop running a local instance of an LLM via Hugging Face, solving advanced mathematical equations locally without internet friction
+        </div>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        By using localized test-time scaling strategies like <strong>CLR boost</strong>, developers can run deeply thorough, multi-step verification prompts locally, keeping their data completely private and eliminating expensive external cloud infrastructure costs.
+      </p>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Key Takeaways: The Efficiency Revolution</h2>
+
+      <div class="overflow-x-auto my-8 rounded-xl border border-white/10 bg-white/5 shadow-md">
+        <table class="min-w-full divide-y divide-white/10 text-sm text-left">
+          <thead>
+            <tr class="bg-white/5">
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">Feature Metrics</th>
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">Traditional Trillion-Parameter Models</th>
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">VibeThinker-3B Framework</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10 text-neutral-300">
+            <tr>
+              <td class="px-6 py-4 font-semibold text-white">Compute & Hardware</td>
+              <td class="px-6 py-4">Server farms, massive cloud clusters, high VRAM requirements</td>
+              <td class="px-6 py-4">Local execution; easily handled by modern consumer laptops</td>
+            </tr>
+            <tr class="bg-white/[0.01]">
+              <td class="px-6 py-4 font-semibold text-white">LeetCode First-Try Rate</td>
+              <td class="px-6 py-4">High operational costs to maintain elite coding accuracy</td>
+              <td class="px-6 py-4"><strong>96.1% acceptance rate</strong> (123/128 problems passed first-try)</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-semibold text-white">Availability</td>
+              <td class="px-6 py-4">Gated behind corporate API paywalls & usage tiers</td>
+              <td class="px-6 py-4"><strong>Free and Open-Source</strong> weights available on Hugging Face</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="list-disc pl-6 text-neutral-300 space-y-3 mb-8">
+        <li><strong>Democratic Coding Power:</strong> The tier of advanced reasoning that developers used to pay premium monthly fees to access is now a free utility.</li>
+        <li><strong>Localized Math & Logic:</strong> High-end STEM performance can be embedded natively into local software environments without relying on third-party uptime.</li>
+        <li><strong>The Power of SSP:</strong> WeiboAI's post-training methods demonstrate that data optimization and training philosophy matter just as much as raw parameter scale.</li>
+      </ul>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Conclusion: The Rise of Bespoke Local Engines</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        The launch of VibeThinker-3B proves that the race for massive scale is no longer the only path forward in AI development. By optimizing smaller architectures for extreme logical precision, developers are gaining access to highly efficient tools that don't compromise on industry credibility.
+      </p>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Whether you are looking to run advanced local code validation or deploy local mathematical verification pipelines, the weights are open, free, and ready to test.
+      </p>
+
+      <div class="my-12 p-8 rounded-3xl bg-gradient-to-br from-white/[0.07] to-white/[0.01] border border-white/10 backdrop-blur-md text-center relative overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.4)] group">
+        <div class="absolute top-0 right-0 w-[200px] h-[200px] rounded-full bg-purple-500/5 blur-[50px] pointer-events-none group-hover:bg-purple-500/10 transition-colors duration-500"></div>
+        <h4 class="text-2xl font-brand font-bold text-white mb-3">Download the Full Technical Guide</h4>
+        <p class="text-neutral-300 text-sm max-w-lg mx-auto mb-6 leading-relaxed">
+          Access the deep-dive PDF analysis detailing the Systematic Optimizing Principle (SSP) post-training process, Olympiad benchmarks, and Contests performance datasets.
+        </p>
+        <a 
+          href="https://drive.google.com/file/d/1uQ_pS4ddJ3FDKWA62zK5RUKzoQN00COu/view?usp=drive_link" 
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full hover:from-purple-500 hover:to-blue-500 transition-all duration-300 shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transform hover:-translate-y-0.5 cursor-pointer"
+        >
+          <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+          </svg>
+          Download PDF Guide
+        </a>
+      </div>
+
+      <div class="mt-12 pt-6 border-t border-white/10">
+        <span class="text-neutral-500 text-sm">Sources & Further Reading:</span>
+        <div class="flex flex-col gap-2 mt-2 text-sm">
+          <a href="https://huggingface.co/" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors flex items-center">
+            🔗 Hugging Face Repository: WeiboAI VibeThinker-3B Space & Model Weights
+          </a>
+          <a href="https://github.com/weiboai/" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors flex items-center">
+            🔗 GitHub Repository: VibeThinker Technical Specifications and Codebase
+          </a>
+        </div>
+      </div>
+    `
+  },
+  {
     slug: 'the-death-of-the-ad-manager-meta-ai-connectors',
     title: 'The Death of the Ad Manager: How Meta’s AI Connectors Are Disrupting the Agency Moat',
     excerpt: 'Discover how Meta\'s new Ads AI Connectors and Model Context Protocol (MCP) are turning conversational AI into autonomous ad agents, shifting the value from manual execution to strategy.',
@@ -212,11 +376,150 @@ export const blogs: BlogPost[] = [
       <div class="mt-12 pt-6 border-t border-white/10">
         <span class="text-neutral-500 text-sm">Sources & Further Reading:</span>
         <div class="flex flex-col gap-2 mt-2 text-sm">
-          <a href="https://github.com/langchain-ai/langgraph" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors flex items-center">
-            🔗 LangGraph: Orchestrating Agentic Systems on GitHub
-          </a>
           <a href="https://www.deepmind.com/" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors flex items-center">
             🔗 Google DeepMind's Research on AI Reasoning
+          </a>
+        </div>
+      </div>
+    `
+  },
+  {
+    slug: 'fine-tuning-demoted-unsloth-studio-custom-llms',
+    title: 'Fine-Tuning Demoted: How Unsloth Studio is Democratizing Custom LLMs',
+    excerpt: 'Explore how Unsloth Studio’s open-source, no-code browser dashboard collapses the barriers of training custom AI models, running low-VRAM local fine-tuning in minutes.',
+    date: 'Jun 21, 2026',
+    readTime: '5 min read',
+    category: 'AI & Data',
+    tags: ['Unsloth Studio', 'Fine-Tuning', 'LLMs', 'Open Source AI', 'GGUF'],
+    coverImage: '/blog/unsloth-studio-cover.png',
+    content: `
+      <p class="lead text-xl text-neutral-300 mb-8 leading-relaxed">
+        Not long ago, training a custom Artificial Intelligence model from scratch was an elite sport. It required tens of thousands of dollars, a cluster of enterprise-grade GPUs, complex server architectures, and a deep understanding of machine learning frameworks. If you didn't have a massive budget or a venture-backed infrastructure, building a truly personalized LLM was out of the question.
+      </p>
+      
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        That barrier just officially collapsed.
+      </p>
+      
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        The team behind <strong>Unsloth</strong> has launched <strong>Unsloth Studio</strong>, an open-source, no-code web user interface designed for training, running, and exporting open-source AI models entirely locally or via basic web browsers. By turning fine-tuning into a 2-minute setup, they have stripped away the technical complexity of building tailored AI systems.
+      </p>
+
+      <h3 class="text-2xl font-brand font-bold text-white mt-12 mb-6">Watch the Breakdown</h3>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Before we explore the underlying technology, see how this tool changes the landscape of open-source development in real time:
+      </p>
+
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)] group aspect-video max-w-3xl mx-auto cursor-pointer">
+        <div class="absolute inset-0 bg-black/45 group-hover:bg-black/25 transition-colors duration-500 z-10"></div>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <div class="w-16 h-16 rounded-full bg-purple-600/90 group-hover:bg-purple-500 text-white flex items-center justify-center shadow-[0_0_30px_rgba(168,85,247,0.5)] group-hover:scale-110 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6 ml-1">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+        </div>
+        <img src="/blog/unsloth-studio-cover.png" alt="Unsloth Studio Video Breakdown" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.7] group-hover:scale-[1.02] transition-transform duration-700" />
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-xs text-neutral-300 flex justify-between items-center z-20">
+          <span>📺 Unsloth Studio: No-Code LLM Fine-Tuning Tutorial</span>
+          <span class="bg-purple-500/20 border border-purple-500/30 px-2 py-0.5 rounded text-[10px] uppercase font-bold text-purple-300">8:42</span>
+        </div>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">What is Unsloth Studio?</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Unsloth Studio is a streamlined, browser-based interface built to handle localized fine-tuning, inference, and data embedding for open-source LLMs. It brings the efficiency optimizations Unsloth is known for—such as their hyper-optimized, low-VRAM training kernels—into a visual ecosystem that doesn't require a terminal.
+      </p>
+
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <img src="/blog/unsloth-studio-dashboard.png" alt="Unsloth Studio Web UI dashboard screenshot" class="w-full h-auto" />
+        <div class="p-4 bg-white/5 text-xs text-neutral-400 border-t border-white/10 italic text-center">
+          Screenshot of the clean Unsloth Studio Web UI dashboard, highlighting the model selector (like Qwen) and parameter tuning sliders
+        </div>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        The system simplifies the enterprise machine learning pipeline into three distinct phases:
+      </p>
+
+      <ul class="list-disc pl-6 text-neutral-300 space-y-3 mb-8">
+        <li><strong>No Configuration Overhead:</strong> There are no intense local package dependencies, hardware driver headaches, or API setups to manage. You load the UI directly in a standard browser tab.</li>
+        <li><strong>Rapid Deployment:</strong> The system is built to ingest custom local datasets and initialize training routines within two minutes.</li>
+        <li><strong>Broad Local Model Support:</strong> It natively runs and handles specialized model configurations like GGUF and safetensors across standard operating systems including macOS, Windows, and Linux.</li>
+      </ul>
+
+      <blockquote class="border-l-4 border-white/20 pl-6 italic text-neutral-400 my-8 py-2">
+        <strong>The Technical Moat:</strong> Unsloth's core technology allows models to train up to 2x faster while consuming up to 70% less VRAM without sacrificing mathematical accuracy. Unsloth Studio abstracts this raw power into a clean interface.
+      </blockquote>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Why This Changes the Open-Source Strategy</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        In the developer community, fine-tuning was often a trade-off between complex cloud infrastructure bills and intense local hardware builds. By drastically reducing the computational footprint required to align an LLM, Unsloth Studio opens the door for hyper-niche use cases.
+      </p>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        If you want an LLM that explicitly understands your proprietary codebase, your brand's unique conversational voice, or specialized internal data schemas, you can now orchestrate that pipeline independently.
+      </p>
+
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <img src="/blog/server-vs-laptop.png" alt="Server rack vs Local laptop training split graphic" class="w-full h-auto" />
+        <div class="p-4 bg-white/5 text-xs text-neutral-400 border-t border-white/10 italic text-center">
+          Split graphic showing an engineering team looking at a massive, expensive server rack vs. a single developer fine-tuning a model on a consumer laptop
+        </div>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Key Takeaways for Developers and Teams</h2>
+
+      <div class="overflow-x-auto my-8 rounded-xl border border-white/10 bg-white/5 shadow-md">
+        <table class="min-w-full divide-y divide-white/10 text-sm text-left">
+          <thead>
+            <tr class="bg-white/5">
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">Feature</th>
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">Traditional Fine-Tuning</th>
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">Unsloth Studio Framework</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10 text-neutral-300">
+            <tr>
+              <td class="px-6 py-4 font-semibold text-white">Hardware Barrier</td>
+              <td class="px-6 py-4">High-end dedicated cloud V100/A100 GPU clusters</td>
+              <td class="px-6 py-4">Drastically lower VRAM overhead; accessible via browser environments</td>
+            </tr>
+            <tr class="bg-white/[0.01]">
+              <td class="px-6 py-4 font-semibold text-white">Interface Style</td>
+              <td class="px-6 py-4">Heavy Python scripts, PyTorch configurations, and CLI tooling</td>
+              <td class="px-6 py-4">A clean, visual, no-code web application workspace</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-semibold text-white">Setup Pipeline</td>
+              <td class="px-6 py-4">Hours/Days of environment validation and data mapping</td>
+              <td class="px-6 py-4">Under 2 minutes to load, select a base model, and begin training</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="list-disc pl-6 text-neutral-300 space-y-3 mb-8">
+        <li><strong>Accessible Customization:</strong> The financial and infrastructure barriers to training custom models are effectively gone. Anyone with an internet connection and data can train an LLM.</li>
+        <li><strong>Local Control:</strong> Supporting GGUF and local formats ensures that data privacy remains intact, allowing teams to keep sensitive documentation completely off external third-party servers.</li>
+        <li><strong>Accelerated Iteration:</strong> Fast setup and low-VRAM training models mean engineers can prototype, adjust parameters, and benchmark custom weights in hours instead of days.</li>
+      </ul>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Conclusion: The Era of the Bespoke LLM</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Unsloth Studio marks a distinct shift in how the tech industry approaches artificial intelligence. We are moving quickly away from relying entirely on a few massive, generalized, cloud-hosted frontier models. The future belongs to small, highly optimized, hyper-specialized models built for distinct operational tasks.
+      </p>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        When the tools to build custom AI become this frictionless, the true value shifts from the underlying hardware back to the quality of your data and creative execution.
+      </p>
+
+      <div class="mt-12 pt-6 border-t border-white/10">
+        <span class="text-neutral-500 text-sm">Sources & Further Reading:</span>
+        <div class="flex flex-col gap-2 mt-2 text-sm">
+          <a href="https://unsloth.ai/" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors flex items-center">
+            🔗 Unsloth Official Documentation & Studio Installation Guide
+          </a>
+          <a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors flex items-center">
+            🔗 GitHub Repository: Unsloth Open-Source Training Kernels
           </a>
         </div>
       </div>
