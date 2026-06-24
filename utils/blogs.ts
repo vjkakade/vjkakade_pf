@@ -12,6 +12,188 @@ export interface BlogPost {
 
 export const blogs: BlogPost[] = [
   {
+    slug: 'master-claude-code-ultimate-resource-guide',
+    title: 'Master Claude Code: The Ultimate Resource Guide for Next-Gen Developers',
+    excerpt: 'Anthropic\'s agentic CLI tool, Claude Code, is redefining modern developer workflows. Explore over 17 free courses, GitHub repositories, and practical tutorials to fast-track your agentic proficiency.',
+    date: 'Jun 25, 2026',
+    readTime: '6 min read',
+    category: 'Developer Tools',
+    tags: ['Claude Code', 'Agentic Workflows', 'AI Engineering', 'Developer Resources', 'MCP'],
+    coverImage: '/blog/claude-code-cover.png',
+    content: `
+      <p class="lead text-xl text-neutral-300 mb-8 leading-relaxed">
+        The landscape of AI-assisted engineering is evolving at a breakneck pace, and <strong>Claude Code</strong>—Anthropic's agentic command-line tool—is positioning itself as a cornerstone for modern developer workflows. While many developers have barely scratched the surface, mastering this tool is rapidly becoming a critical differentiator in software engineering.
+      </p>
+      
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        To help you get ahead of the curve, this comprehensive guide compiles <strong>17+ elite, free resources</strong> categorized into structured courses, open-source GitHub repositories, and practical tutorials. Whether you are looking to understand the core mechanics of LLMs or build highly scalable multi-agent systems, these curated tracks are designed to fast-track your proficiency.
+      </p>
+
+      <h3 class="text-2xl font-brand font-bold text-white mt-12 mb-6">Watch the Resource Breakdown</h3>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Take a quick look at the educational pipeline compiled in the video breakdown, which outlines the exact sequence of resources available to take you from a curious prompt builder to a master agentic architect:
+      </p>
+
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)] max-w-3xl mx-auto aspect-video bg-neutral-950">
+        <video src="/blog/claude-code-resources.mp4" controls class="w-full h-full object-cover filter brightness-[0.95]" poster="/blog/claude-code-cover.png"></video>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">1. The Core Learning Paths: 4 Free Courses</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Building a strong theoretical and practical foundation is non-negotiable. These four world-class courses offer over 40 hours of structured content to elevate your understanding of machine learning and agentic frameworks:
+      </p>
+
+      <ol class="list-decimal pl-6 text-neutral-300 space-y-3 mb-8">
+        <li><strong>Harvard CS50 AI:</strong> An exceptional introduction to Artificial Intelligence concepts using Python, laying down the computational logic needed to work with advanced models.</li>
+        <li><strong>Fast.ai Practical Deep Learning:</strong> Deep learning for coders with no math or PhD prerequisites required, emphasizing practical code execution over dense academic theory.</li>
+        <li><strong>Stanford CS229 (Andrew Ng):</strong> A masterclass covering the core foundational principles of machine learning, essential for anyone wanting to truly understand model behavior.</li>
+        <li><strong>Google ML Crash Course:</strong> A fast-paced, 15-hour hands-on guide utilizing TensorFlow to help you master machine learning workflows from data preparation to optimization.</li>
+      </ol>
+
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <img src="/blog/claude-code-curriculum.png" alt="Stepping stones in an AI curriculum infographic" class="w-full h-auto" />
+        <div class="p-4 bg-white/5 text-xs text-neutral-400 border-t border-white/10 italic text-center">
+          Visual layout of core learning tracks: Harvard, Stanford, Fast.ai, and Google as progressive stepping stones.
+        </div>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">2. Production Blueprints: 7 Essential GitHub Repositories</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        To move past basic prototyping, you need to study how code is structured at scale. These seven repositories cover everything from fundamental prompt tracking to complex context protocols:
+      </p>
+
+      <ul class="list-disc pl-6 text-neutral-300 space-y-3 mb-8">
+        <li><code>llm-course</code>: A complete LLM course packed with interactive Jupyter Notebooks to explore raw architecture designs.</li>
+        <li><code>awesome-llm</code>: A carefully curated list of tools, frameworks, and foundational resources across the LLM landscape.</li>
+        <li><code>open-interpreter</code>: A natural language computer interface that lets language models run code locally.</li>
+        <li><code>privateGPT</code>: A secure, local setup allowing you to interact with your documents privately without risking data leaks.</li>
+        <li><code>autogen</code>: Microsoft's prominent multi-agent conversation framework, ideal for understanding parallel AI collaboration.</li>
+        <li><code>langchain</code>: A robust ecosystem built for creating highly composable applications using large language models.</li>
+        <li><code>ollama</code>: The definitive tool for running large language models locally on consumer-grade hardware.</li>
+      </ul>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">3. Hands-On Mastery: 6 Step-by-Step Tutorials</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Theory alone won't optimize your workflow. These six targeted technical deep dives map out exactly how to build, refine, and deploy AI-centric architectures:
+      </p>
+
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <img src="/blog/claude-code-terminal-flowchart.png" alt="Command line terminal execution flow next to RAG embedding flowchart" class="w-full h-auto" />
+        <div class="p-4 bg-white/5 text-xs text-neutral-400 border-t border-white/10 italic text-center">
+          Operational split view: A command line terminal execution flow side-by-side with RAG embedding pipelines.
+        </div>
+      </div>
+
+      <ul class="list-disc pl-6 text-neutral-300 space-y-3 mb-8">
+        <li><strong>Build AI Agents From Scratch:</strong> Build pure Python agent systems without relying on third-party abstractions or bloated frameworks.</li>
+        <li><strong>LangChain Full Course:</strong> A zero-to-production blueprint designed to get an application deployed in under four hours.</li>
+        <li><strong>Fine-Tune Your Own LLM:</strong> Step-by-step guidance on utilizing <strong>LoRA + QLoRA</strong> methods to tune open models efficiently on a consumer GPU.</li>
+        <li><strong>RAG Pipeline Masterclass:</strong> Demystifying vector databases, metadata schemas, and embedding models to handle private enterprise knowledge bases.</li>
+        <li><strong>Prompt Engineering Deep Dive:</strong> An advanced look at the exact contextual frameworks and multi-step reasoning techniques that professional engineers employ.</li>
+        <li><strong>Deploy ML Models at Scale:</strong> Learn how to package your custom code using Docker, wrap it in FastAPI, and ship it to cloud infrastructure seamlessly.</li>
+      </ul>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Key Takeaways: Your Blueprint to Mastery</h2>
+
+      <div class="overflow-x-auto my-8 rounded-xl border border-white/10 bg-white/5 shadow-md">
+        <table class="min-w-full divide-y divide-white/10 text-sm text-left">
+          <thead>
+            <tr class="bg-white/5">
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">Resource Type</th>
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">What it Teaches</th>
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">Expected Outcome</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10 text-neutral-300">
+            <tr>
+              <td class="px-6 py-4 font-semibold text-white">4 Academic Courses</td>
+              <td class="px-6 py-4">Machine learning mechanics & algorithm design</td>
+              <td class="px-6 py-4">Deep theoretical and architectural credibility</td>
+            </tr>
+            <tr class="bg-white/[0.01]">
+              <td class="px-6 py-4 font-semibold text-white">7 GitHub Repositories</td>
+              <td class="px-6 py-4">Code patterns, local setups, & tool integration</td>
+              <td class="px-6 py-4">The ability to configure local, privacy-first environments</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-semibold text-white">6 Video Tutorials</td>
+              <td class="px-6 py-4">Prompt design, RAG pipelines, & microservice hosting</td>
+              <td class="px-6 py-4">Production-ready development and cloud deployment skills</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="my-12 p-8 rounded-3xl bg-gradient-to-br from-white/[0.07] to-white/[0.01] border border-white/10 backdrop-blur-md relative overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.4)] group">
+        <div class="absolute top-0 right-0 w-[200px] h-[200px] rounded-full bg-purple-500/5 blur-[50px] pointer-events-none group-hover:bg-purple-500/10 transition-colors duration-500"></div>
+        <h4 class="text-2xl font-brand font-bold text-white mb-3 text-center">Elite Resource Guides & Developer Kits</h4>
+        <p class="text-neutral-300 text-sm max-w-lg mx-auto mb-8 text-center leading-relaxed">
+          4 courses, 7 GitHub repos, and 6 tutorials. All free! Plus, get access to these premium developer guidebooks and sales playbooks to take your agentic skills to the next level:
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <a 
+            href="https://hyperautomationlabs.gumroad.com/l/claude-code-guide" 
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex flex-col items-center justify-between p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-purple-500/30 hover:bg-white/10 transition-all text-center group/card cursor-pointer"
+          >
+            <span class="text-4xl mb-3">📖</span>
+            <span class="font-bold text-white mb-1 group-hover/card:text-purple-300 transition-colors">Claude Code Guide</span>
+            <span class="text-xs text-neutral-400">44 Pages of deep engineering tactics</span>
+          </a>
+          
+          <a 
+            href="https://hyperautomationlabs.gumroad.com/l/codex-guide" 
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex flex-col items-center justify-between p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-purple-500/30 hover:bg-white/10 transition-all text-center group/card cursor-pointer"
+          >
+            <span class="text-4xl mb-3">📗</span>
+            <span class="font-bold text-white mb-1 group-hover/card:text-purple-300 transition-colors">Codex CLI Guide</span>
+            <span class="text-xs text-neutral-400">48 Pages of CLI optimization</span>
+          </a>
+          
+          <a 
+            href="https://hyperautomationlabs.gumroad.com/l/claude-cowork-sales" 
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex flex-col items-center justify-between p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-purple-500/30 hover:bg-white/10 transition-all text-center group/card cursor-pointer"
+          >
+            <span class="text-4xl mb-3">💰</span>
+            <span class="font-bold text-white mb-1 group-hover/card:text-purple-300 transition-colors">Sales Playbook</span>
+            <span class="text-xs text-neutral-400">40+ Pages of client execution playbooks</span>
+          </a>
+        </div>
+
+        <div class="flex flex-wrap gap-2 justify-center pt-4 border-t border-white/5">
+          <span class="text-[10px] uppercase font-bold tracking-wider bg-purple-500/10 border border-purple-500/20 px-3 py-1 rounded-full text-purple-300">#claudecode</span>
+          <span class="text-[10px] uppercase font-bold tracking-wider bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full text-blue-300">#freecourses</span>
+          <span class="text-[10px] uppercase font-bold tracking-wider bg-teal-500/10 border border-teal-500/20 px-3 py-1 rounded-full text-teal-300">#AI</span>
+          <span class="text-[10px] uppercase font-bold tracking-wider bg-neutral-500/10 border border-neutral-500/20 px-3 py-1 rounded-full text-neutral-400">#Tech</span>
+          <span class="text-[10px] uppercase font-bold tracking-wider bg-pink-500/10 border border-pink-500/20 px-3 py-1 rounded-full text-pink-300">#Shorts</span>
+        </div>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Conclusion: Build, Don't Just Prompt</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        The shift toward AI-driven software development isn't about replacing engineers; it is about amplifying the capabilities of developers who know how to architect agentic workflows. By leveraging these 17+ open-source assets, you can transform your daily routine—transitioning from manual code generation to building self-correcting, context-aware agent clusters that scale.
+      </p>
+
+      <div class="mt-12 pt-6 border-t border-white/10">
+        <span class="text-neutral-500 text-sm">Sources & Further Reading:</span>
+        <div class="flex flex-col gap-2 mt-2 text-sm">
+          <a href="https://docs.anthropic.com/en/docs/about-claude/code-integrations/claude-code" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors flex items-center">
+            🔗 Anthropic Official: Claude Code Documentation
+          </a>
+          <a href="https://github.com/modelcontextprotocol" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors flex items-center">
+            🔗 Model Context Protocol (MCP) Hub on GitHub
+          </a>
+        </div>
+      </div>
+    `
+  },
+  {
     slug: 'small-model-giant-intellect-vibethinker-3b-scaling-laws',
     title: 'Small Model, Giant Intellect: How China’s VibeThinker-3B is Defying LLM Scaling Laws',
     excerpt: 'WeiboAI’s open-source 3-billion parameter model goes toe-to-toe with trillion-parameter giants on competitive math and LeetCode, challenging the bigger-is-better scaling paradigm.',
