@@ -29,14 +29,6 @@ export const blogs: BlogPost[] = [
         To help you get ahead of the curve, this comprehensive guide compiles <strong>17+ elite, free resources</strong> categorized into structured courses, open-source GitHub repositories, and practical tutorials. Whether you are looking to understand the core mechanics of LLMs or build highly scalable multi-agent systems, these curated tracks are designed to fast-track your proficiency.
       </p>
 
-      <h3 class="text-2xl font-brand font-bold text-white mt-12 mb-6">Watch the Resource Breakdown</h3>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Take a quick look at the educational pipeline compiled in the video breakdown, which outlines the exact sequence of resources available to take you from a curious prompt builder to a master agentic architect:
-      </p>
-
-      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)] max-w-3xl mx-auto aspect-video bg-neutral-950">
-        <video src="/blog/claude-code-resources.mp4" controls class="w-full h-full object-cover filter brightness-[0.95]" poster="/blog/claude-code-cover.png"></video>
-      </div>
 
       <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">1. The Core Learning Paths: 4 Free Courses</h2>
       <p class="text-neutral-300 mb-6 leading-relaxed">
