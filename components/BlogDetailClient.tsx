@@ -90,8 +90,32 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": blog.title,
+    "image": `https://vijaykakade.com${blog.coverImage}`,
+    "datePublished": new Date(blog.date).toISOString(),
+    "author": {
+      "@type": "Person",
+      "name": "Vijay Kakade",
+      "url": "https://vijaykakade.com"
+    },
+    "description": blog.excerpt,
+    "publisher": {
+      "@type": "Person",
+      "name": "Vijay Kakade",
+      "url": "https://vijaykakade.com"
+    }
+  };
+
   return (
     <main className="min-h-screen bg-[#121212] text-white selection:bg-white/30 font-sans relative overflow-hidden">
+      {/* JSON-LD Structured Data for Search Engines */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       
       {/* Scroll Progress Indicator with glow */}
       <motion.div 

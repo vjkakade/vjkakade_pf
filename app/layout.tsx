@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://vijaykakade.com'),
   title: 'Vijay Kakade | AI, Cloud & DevOps Engineer',
   description: 'Experienced IT Professional with 12+ years in infrastructure, cloud, DevOps, and Generative AI. Explore my multi-cloud projects, timeline, and certifications.',
   keywords: [

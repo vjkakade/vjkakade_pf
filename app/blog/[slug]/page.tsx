@@ -1,7 +1,30 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { blogs } from '@/utils/blogs';
 import BlogDetailClient from '@/components/BlogDetailClient';
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const blog = blogs.find((b) => b.slug === params.slug);
+  if (!blog) return {};
+
+  return {
+    title: `${blog.title} | Vijay Kakade`,
+    description: blog.excerpt,
+    openGraph: {
+      title: blog.title,
+      description: blog.excerpt,
+      images: [{ url: blog.coverImage }],
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: blog.title,
+      description: blog.excerpt,
+      images: [blog.coverImage],
+    }
+  };
+}
 
 interface PageProps {
   params: {
