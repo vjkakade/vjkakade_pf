@@ -36,8 +36,13 @@ export default function Skills() {
           <div className="relative w-full h-full max-w-[500px] max-h-[500px]">
             {/* Center Core */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-white/10 rounded-full blur-2xl animate-pulse" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full flex items-center justify-center text-black font-brand font-extrabold text-xl z-10 shadow-[0_0_40px_rgba(255,255,255,0.6)]">
-              VK
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full flex items-center justify-center z-10 shadow-[0_0_40px_rgba(255,255,255,0.6)] overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img 
+                src="/logo.png" 
+                alt="Vijay Kakade Logo" 
+                className="w-full h-full object-cover"
+              />
             </div>
 
             {/* Orbit 1: Cloud */}

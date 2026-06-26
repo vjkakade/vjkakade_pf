@@ -7,6 +7,65 @@ import { ArrowLeft, Calendar, Clock, Share2, Check, Tag } from 'lucide-react';
 import { BlogPost } from '@/utils/blogs';
 import { playClickSound } from '@/utils/sound';
 
+const GithubIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A4.8 4.8 0 0 0 8 18v4"></path>
+  </svg>
+);
+
+const LinkedinIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+  </svg>
+);
+
+const XIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+  </svg>
+);
+
+const InstagramIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
+
+const BlogIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+  </svg>
+);
+
+const ImageIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+    <polyline points="21 15 16 10 5 21"></polyline>
+  </svg>
+);
+
+const MailIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+  </svg>
+);
+
+const GlobeIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <circle cx="12" cy="12" r="10"></circle>
+    <line x1="2" y1="12" x2="22" y2="12"></line>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+  </svg>
+);
+
+
 interface BlogDetailClientProps {
   blog: BlogPost;
   relatedBlogs: BlogPost[];
@@ -145,9 +204,14 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
 
           {/* Author Profile Section */}
           <div className="mt-16 pt-10 border-t border-white/10 flex flex-col sm:flex-row items-center gap-6 text-left relative z-10">
-            <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-purple-500 to-blue-500 p-0.5 flex-shrink-0 shadow-[0_0_20px_rgba(168,85,247,0.2)]">
-              <div className="w-full h-full rounded-full bg-[#18181b] flex items-center justify-center font-brand font-bold text-xl text-white">
-                VK
+            <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-purple-500 to-blue-500 p-0.5 flex-shrink-0 shadow-[0_0_20px_rgba(168,85,247,0.2)] overflow-hidden">
+              <div className="w-full h-full rounded-full bg-[#18181b] flex items-center justify-center overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src="/logo.png" 
+                  alt="Vijay Kakade" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
             <div className="flex-grow">
@@ -155,17 +219,30 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
               <p className="text-neutral-400 text-sm leading-relaxed mb-4">
                 Cloud, AI & DevOps Engineer with 12+ years of experience building secure, scalable, and automated cloud systems. Specialized in Multi-Cloud architectures and Generative AI workflows.
               </p>
-              <div className="flex items-center gap-4">
-                <a href="https://www.linkedin.com/in/vjkakade/" target="_blank" rel="noopener noreferrer" className="text-xs text-purple-400 hover:text-purple-300 font-semibold transition-colors">
-                  LinkedIn
+              <div className="flex flex-wrap items-center gap-3">
+                <a aria-label="Visit Website" href="https://vijaykakade.com" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 hover:border-white/20 text-neutral-400 hover:text-white hover:-translate-y-0.5 transition-all">
+                  <GlobeIcon className="w-4.5 h-4.5" />
                 </a>
-                <span className="text-neutral-600">•</span>
-                <a href="https://github.com/vjkakade" target="_blank" rel="noopener noreferrer" className="text-xs text-purple-400 hover:text-purple-300 font-semibold transition-colors">
-                  GitHub
+                <a aria-label="Visit GitHub Profile" href="https://github.com/vjkakade" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 hover:border-white/20 text-neutral-400 hover:text-white hover:-translate-y-0.5 transition-all">
+                  <GithubIcon className="w-4.5 h-4.5" />
                 </a>
-                <span className="text-neutral-600">•</span>
-                <a href="mailto:vijaykakade@live.com" className="text-xs text-purple-400 hover:text-purple-300 font-semibold transition-colors">
-                  Get in Touch
+                <a aria-label="Visit LinkedIn Profile" href="https://www.linkedin.com/in/vjkakade/" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 hover:border-white/20 text-neutral-400 hover:text-white hover:-translate-y-0.5 transition-all">
+                  <LinkedinIcon className="w-4.5 h-4.5" />
+                </a>
+                <a aria-label="Visit X Profile" href="https://x.com/vjkakade" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 hover:border-white/20 text-neutral-400 hover:text-white hover:-translate-y-0.5 transition-all">
+                  <XIcon className="w-4.5 h-4.5" />
+                </a>
+                <a aria-label="Visit Instagram Profile" href="https://instagram.com/vjkakade" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 hover:border-white/20 text-neutral-400 hover:text-white hover:-translate-y-0.5 transition-all">
+                  <InstagramIcon className="w-4.5 h-4.5" />
+                </a>
+                <Link aria-label="Visit Blog Profile" href="/blog" className="p-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 hover:border-white/20 text-neutral-400 hover:text-white hover:-translate-y-0.5 transition-all">
+                  <BlogIcon className="w-4.5 h-4.5" />
+                </Link>
+                <a aria-label="View Photo Gallery" href="/gallery" className="p-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 hover:border-white/20 text-neutral-400 hover:text-white hover:-translate-y-0.5 transition-all">
+                  <ImageIcon className="w-4.5 h-4.5" />
+                </a>
+                <a aria-label="Email Me" href="mailto:vijaykakade@live.com" className="p-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 hover:border-white/20 text-neutral-400 hover:text-white hover:-translate-y-0.5 transition-all">
+                  <MailIcon className="w-4.5 h-4.5" />
                 </a>
               </div>
             </div>
