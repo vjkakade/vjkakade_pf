@@ -29,26 +29,6 @@ export const blogs: BlogPost[] = [
         Welcome to Day 1 of your comprehensive 3-Month AI Engineer roadmap. We are kicking off <strong>Phase 1: Python + Data (Week 1–2)</strong> by focusing exclusively on programmatic foundations and setting up a professional developer ecosystem.
       </p>
 
-      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Watch the Reality of the Roadmap</h2>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Before diving into today's setup checklist, watch this crucial breakdown outlining exactly why syntax memorization is a trap and why establishing structural foundations determines your career success:
-      </p>
-
-      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)] bg-black/40">
-        <video 
-          src="/blog/ai-engineer-day1.mp4" 
-          controls 
-          playsinline
-          class="w-full h-auto max-h-[500px] object-contain mx-auto"
-          poster="/blog/ai-engineer-day1-cover.png"
-        >
-          Your browser does not support the video tag.
-        </video>
-        <div class="p-4 bg-white/5 text-xs text-neutral-400 border-t border-white/10 italic text-center">
-          Video Walkthrough: Day 1 AI Engineer Setup & Focus Checklist.
-        </div>
-      </div>
-
       <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">The Day 1 Focus: The Pragmatic Developer Stack</h2>
       <p class="text-neutral-300 mb-6 leading-relaxed">
         To build enterprise-grade AI systems, you must stop using basic sandbox scratchpads and move into an industry-standard local environment. Your goal today is to construct a resilient local pipeline capable of script isolation, automated dependency tracking, and seamless version routing.
