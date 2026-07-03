@@ -29,19 +29,21 @@ export const blogs: BlogPost[] = [
         Before an LLM can parse a context window, or before a retrieval-augmented generation (RAG) system can chunk documents into an indexing database, the data must be systematically parsed, transformed, and structured. In Python, the industrial standard tool for this task is <strong>Pandas</strong>. Today, we transition from viewing tables as plain spreadsheets to managing them as programmable high-speed matrices.
       </p>
 
-      <div class="mt-8 mb-12 p-6 rounded-2xl border border-white/10 bg-white/5 shadow-md">
-        <h4 class="text-lg font-bold text-white mb-2">Watch the Practical Workflow Setup</h4>
-        <p class="text-neutral-300 mb-4 text-sm leading-relaxed">
-          To see how professional engineers manipulate tabular objects and handle file loading workflows step-by-step, review this comprehensive walkthrough before deploying your local code:
-        </p>
-        <a 
-          href="https://www.youtube.com/watch?v=2uvysYbKdjM" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 text-white font-semibold hover:bg-purple-500 transition-colors text-sm"
-        >
-          <span>🎥 Watch Pandas Workflow Tutorial</span>
-        </a>
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)] bg-black/40">
+        <div class="aspect-video w-full">
+          <iframe 
+            src="https://www.youtube.com/embed/2uvysYbKdjM" 
+            title="Complete Python Pandas Data Science Tutorial Video Walkthrough" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen
+            class="w-full h-full"
+          ></iframe>
+        </div>
+        <div class="p-4 bg-white/5 text-xs text-neutral-400 border-t border-white/10 italic text-center">
+          YouTube Walkthrough: Pandas Tabular Manipulation & ETL Ingestion.
+        </div>
       </div>
 
       <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">The Core Foundations of Tabular Arrays</h2>
