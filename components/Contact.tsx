@@ -91,7 +91,7 @@ export default function Contact() {
       
       <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-white/5 text-center flex flex-col items-center">
         <p className="text-neutral-500 text-sm">
-          Designed by <a href="https://www.linkedin.com/in/vjkakade/" target="_blank" rel="noopener noreferrer" className="text-white hover:underline transition-colors">Vijay Kakade</a>
+          © 2026 <a href="https://www.linkedin.com/in/vjkakade/" target="_blank" rel="noopener noreferrer" className="text-white hover:underline transition-colors">Vijay Kakade</a> · All Rights Reserved
         </p>
       </div>
     </footer>

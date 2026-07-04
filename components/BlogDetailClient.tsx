@@ -137,6 +137,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
           src={blog.coverImage} 
           alt={blog.title} 
           className="w-full h-full object-cover transform scale-102 filter brightness-[0.85]"
+          fetchPriority="high"
         />
         {/* Ambient Dark Overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-[#121212]" />

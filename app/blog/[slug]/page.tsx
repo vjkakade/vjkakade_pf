@@ -14,14 +14,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: blog.title,
       description: blog.excerpt,
-      images: [{ url: blog.coverImage }],
+      images: [{ url: `https://vijaykakade.com${blog.coverImage}`, width: 1200, height: 630, alt: blog.title }],
       type: 'article',
     },
     twitter: {
       card: 'summary_large_image',
       title: blog.title,
       description: blog.excerpt,
-      images: [blog.coverImage],
+      images: [`https://vijaykakade.com${blog.coverImage}`],
     }
   };
 }
@@ -47,8 +47,13 @@ export default function BlogDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  // Get related blogs (up to 2 related articles, excluding the current one)
-  const relatedBlogs = blogs.filter((b) => b.slug !== slug).slice(0, 2);
+  // Get related blogs: prefer same category, then fallback to recent posts (up to 2)
+  const relatedBlogs = (() => {
+    const sameCat = blogs.filter((b) => b.slug !== slug && b.category === blog!.category).slice(0, 2);
+    if (sameCat.length >= 2) return sameCat;
+    const others = blogs.filter((b) => b.slug !== slug && b.category !== blog!.category).slice(0, 2 - sameCat.length);
+    return [...sameCat, ...others];
+  })();
 
   return <BlogDetailClient blog={blog} relatedBlogs={relatedBlogs} />;
 }
