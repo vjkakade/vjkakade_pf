@@ -1,9 +1,9 @@
 import React from 'react';
 
 const skills = [
-  'Azure', 'AWS', 'GCP', 'Oracle Cloud', 'Azure DevOps',
-  'Jenkins', 'GitHub', 'Terraform', 'CI/CD Pipelines',
-  'MongoDB', 'IWMS (TRIRIGA)', 'Python', 'Agentic AI', 'Generative AI'
+  'Azure', 'AWS', 'GCP', 'Oracle Cloud (OCI)', 'Azure DevOps',
+  'Jenkins', 'Docker', 'Kubernetes', 'Terraform', 'CI/CD Pipelines',
+  'MongoDB', 'IBM Cloud', 'IWMS (TRIRIGA)', 'Python', 'Agentic AI', 'Generative AI'
 ];
 
 export default function About() {
@@ -16,13 +16,13 @@ export default function About() {
             Hi, It&apos;s Vijay.
           </h2>
           <p className="text-lg text-neutral-300 leading-relaxed mb-6">
-            I&apos;m an experienced IT Professional with 12+ years in infrastructure, cloud, and DevOps. 
-            Skilled in managing multi-platform environments (Windows, Linux, mainframe) and delivering global IT solutions.
+            I&apos;m an experienced IT Professional with 13+ years in infrastructure, cloud, and DevOps. 
+            Skilled in managing multi-platform environments (Windows, Linux, Unix, mainframe) and delivering global IT solutions.
           </p>
           <p className="text-lg text-neutral-300 leading-relaxed mb-8">
             My expertise revolves around server infrastructure, virtualization, networking, security, and databases across 
-            healthcare and supply chain sectors. I have a strong background in deploying and maintaining hardware, software, 
-            and IT systems for high-performance environments.
+            healthcare, supply chain, and global consulting enterprises. I have a strong background in deploying, automating, 
+            and maintaining high-performance production systems.
           </p>
           {/* Note: Update the href URL to point to a valid PDF file when hosting. */}
           <a

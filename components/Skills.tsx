@@ -16,18 +16,18 @@ export default function Skills() {
           </p>
           
           <div className="space-y-6">
-             <div className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#4285F4]/50 hover:bg-[#4285F4]/5 transition-all duration-300">
-               <h3 className="text-[#4285F4] font-semibold mb-2 group-hover:-translate-y-0.5 transition-transform">Cloud Architecture</h3>
-               <p className="text-neutral-300 text-sm leading-relaxed">Azure, AWS, Google Cloud, High Availability, Disaster Recovery, Landing Zones</p>
-             </div>
-             <div className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#F4B400]/50 hover:bg-[#F4B400]/5 transition-all duration-300">
-               <h3 className="text-[#F4B400] font-semibold mb-2 group-hover:-translate-y-0.5 transition-transform">DevOps & IAC</h3>
-               <p className="text-neutral-300 text-sm leading-relaxed">Terraform, Kubernetes, Docker, Azure DevOps, CI/CD Pipelines, Bash/PowerShell</p>
-             </div>
-             <div className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#0F9D58]/50 hover:bg-[#0F9D58]/5 transition-all duration-300">
-               <h3 className="text-[#0F9D58] font-semibold mb-2 group-hover:-translate-y-0.5 transition-transform">AI & Data</h3>
-               <p className="text-neutral-300 text-sm leading-relaxed">GenAI, Oracle AI Vector Search, GitHub Copilot, Prompt Engineering, RAG Architectures</p>
-             </div>
+              <div className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#4285F4]/50 hover:bg-[#4285F4]/5 transition-all duration-300">
+                <h3 className="text-[#4285F4] font-semibold mb-2 group-hover:-translate-y-0.5 transition-transform">Cloud Architecture & Systems</h3>
+                <p className="text-neutral-300 text-sm leading-relaxed">AWS, Azure, GCP, IBM Cloud, VMware (vSphere/ESXi), IBM DB2, Oracle, PostgreSQL, MongoDB, High Availability, Disaster Recovery, Landing Zones</p>
+              </div>
+              <div className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#F4B400]/50 hover:bg-[#F4B400]/5 transition-all duration-300">
+                <h3 className="text-[#F4B400] font-semibold mb-2 group-hover:-translate-y-0.5 transition-transform">DevOps, Containers & IaC</h3>
+                <p className="text-neutral-300 text-sm leading-relaxed">Terraform, Ansible, CloudFormation, Kubernetes, Docker, Jenkins, Git/GitLab, Python, Bash, Prometheus, Grafana, ELK Stack, AWS CloudWatch</p>
+              </div>
+              <div className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#0F9D58]/50 hover:bg-[#0F9D58]/5 transition-all duration-300">
+                <h3 className="text-[#0F9D58] font-semibold mb-2 group-hover:-translate-y-0.5 transition-transform">Generative & Agentic AI</h3>
+                <p className="text-neutral-300 text-sm leading-relaxed">Claude, OpenAI APIs, Azure OpenAI, Hugging Face, Prompt Engineering, Agentic AI Workflows, Multi-Agent Orchestration, Vector Databases, Oracle AI Vector Search, GitHub Copilot</p>
+              </div>
           </div>
         </div>
 
