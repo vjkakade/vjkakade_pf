@@ -1,15 +1,19 @@
 import React from 'react';
 
 const certs = [
-  { name: 'GitHub Copilot', date: 'Nov-2025', url: 'https://learn.microsoft.com/en-us/users/vijaykakade-6850/credentials/aa58e6894a26bee6?ref=https%3A%2F%2Fwww.linkedin.com%2F' },
-  { name: 'Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate', date: 'Sept-2025', url: 'https://catalog-education.oracle.com/ords/certview/sharebadge?id=C5DAA59D651C908A81252B3DC6876DEF7A07E056675CB6AC10A898E0B98FC2C3' },
-  { name: 'Oracle Cloud Infrastructure 2025 Certified Generative AI Professional', date: 'Sept-2025' },
-  { name: 'Oracle AI Vector Search Certified Professional', date: 'Sept-2025' },
-  { name: 'Oracle Cloud Infrastructure 2025 Certified DevOps Professional', date: 'Sept-2025' },
-  { name: 'Oracle Cloud Infrastructure 2025 Certified Multicloud Architect Professional', date: 'Sept-2025' },
-  { name: 'Oracle Cloud Infrastructure 2025 Certified Architect Associate', date: 'Sept-2025', url: 'https://catalog-education.oracle.com/ords/certview/sharebadge?id=951C3B368D3E15515AAD57BA5C176CA110DFE4AD536C83D70E91DA98C94E6213' },
-  { name: 'Red Hat Certified Engineer (RHCE)', date: 'Aug-2012' },
-  { name: 'Novell Certified Network+ - Microsoft Certified IT Professional (MCITP)', date: 'Feb-2007' }
+  { name: 'GitHub Copilot', date: 'Nov-2025', url: 'https://learn.microsoft.com/api/credentials/share/en-us/VijayKakade-6850/AA58E6894A26BEE6?sharingId' },
+  { name: 'Oracle Cloud Infrastructure 2025 Certified Foundations Associate', date: 'Oct-2025', url: 'https://catalog-education.oracle.com/pls/certview/sharebadge?id=C5DAA59D651C908A81252B3DC6876DEF7A07E056675CB6AC10A898E0B98FC2C3' },
+  { name: 'Oracle Cloud Infrastructure 2025 Certified Architect Associate', date: 'Oct-2025', url: 'https://catalog-education.oracle.com/pls/certview/sharebadge?id=951C3B368D3E15515AAD57BA5C176CA110DFE4AD536C83D70E91DA98C94E6213' },
+  { name: 'Oracle Cloud Infrastructure 2025 Certified Multicloud Architect Professional', date: 'Oct-2025', url: 'https://catalog-education.oracle.com/pls/certview/sharebadge?id=FE3D5D027CD0E4A114C3178DDF513822B803A6194FB46317911B360831DB3BE0' },
+  { name: 'Oracle Cloud Infrastructure 2025 Certified DevOps Professional', date: 'Sep-2025', url: 'https://catalog-education.oracle.com/pls/certview/sharebadge?id=C792CECBB307D450A870C626D76F60B37A725A0FC31316761D27ECB8D3007602' },
+  { name: 'Oracle AI Vector Search Certified Professional', date: 'Sep-2025', url: 'https://catalog-education.oracle.com/pls/certview/sharebadge?id=75D52C0612F4DA3FD5D93DD4F179989B80AC41469630EE13F50B015FAEA92A72' },
+  { name: 'Oracle Cloud Infrastructure 2025 Certified Generative AI Professional', date: 'Sep-2025', url: 'https://catalog-education.oracle.com/pls/certview/sharebadge?id=243A02D1EF9EBB69191365A15561578B8DC6A0AE3E0185CD0433280BB884ECD6' },
+  { name: 'Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate', date: 'Sep-2025', url: 'https://catalog-education.oracle.com/pls/certview/sharebadge?id=9DE3300BD61D89DA19C785A23BE82B3123A290234E7CF4694E73B0245A1E0540' },
+  { name: 'Redhat Certified Virtualization Administrator', date: 'Sep-2012' },
+  { name: 'Redhat Certified Engineer', date: 'Aug-2012' },
+  { name: 'Novell Certified Network +', date: 'Feb-2007' },
+  { name: 'Microsoft Certified System Administrator', date: 'Mar-2010' },
+  { name: 'Microsoft Certified Professional', date: 'Feb-2007' }
 ];
 
 export default function Certifications() {
