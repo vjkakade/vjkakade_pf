@@ -16,19 +16,13 @@ export default function About() {
             Hi, It&apos;s Vijay.
           </h2>
           <p className="text-lg text-neutral-300 leading-relaxed mb-6">
-            I&apos;ve spent the last 13+ years doing something I genuinely love — building the infrastructure that keeps businesses running, and lately, the AI that makes that infrastructure smarter.
+            I&apos;m a Multi-Cloud Architect and AI Engineer with <strong className="text-white font-semibold">13+ years of experience</strong> building resilient, enterprise-grade systems and the intelligent automation that powers them. I specialize in bridging the gap between deep DevOps infrastructure and applied Generative/Agentic AI.
           </p>
           <p className="text-lg text-neutral-300 leading-relaxed mb-6">
-            My journey started deep in the fundamentals: Windows, Linux, and mainframe environments, server infrastructure, virtualization, networking, security, and databases — largely across healthcare and supply chain organizations where downtime isn&apos;t an option and precision matters.
-          </p>
-          <p className="text-lg text-neutral-300 leading-relaxed mb-6">
-            Over the past 10+ years, that foundation evolved into a specialization in cloud and DevOps. I design and optimize multi-cloud environments (AWS, Azure, GCP, IBM Cloud, OCI) and build CI/CD pipelines using Docker, Kubernetes, Terraform, Ansible, and Jenkins — with Python and Bash scripting to automate the repetitive so teams can focus on what matters.
-          </p>
-          <p className="text-lg text-neutral-300 leading-relaxed mb-6">
-            Today, I&apos;m applying that same infrastructure mindset to AI. As an AI Engineer, I build Generative AI and Agentic AI solutions — chatbots, RAG pipelines, and AI-driven infrastructure automation — using Claude, OpenAI APIs, Azure OpenAI, and Hugging Face. It&apos;s the natural next chapter: I&apos;ve always been the person who automates the manual and scales the fragile, and now I get to do that with LLMs and autonomous agents, not just scripts and pipelines.
+            From architecting high-availability cloud landing zones across AWS, Azure, GCP, and OCI to constructing automated CI/CD pipelines, my career has been dedicated to scaling systems and eliminating manual complexity. Today, I translate that infrastructure expertise into designing production-ready AI solutions—building agentic workflows, LLM integrations, and RAG pipelines.
           </p>
           <p className="text-lg text-neutral-300 leading-relaxed mb-8">
-            Along the way, I&apos;ve led teams, mentored engineers, and driven measurable results — reduced downtime, faster deployments, leaner costs, and more resilient systems. I care about building things that actually hold up in production, not just in a demo.
+            I thrive on turning complex operational challenges into streamlined, self-healing platforms. Whether leading teams, mentoring engineers, or designing zero-downtime architectures, I focus on delivering real-world, measurable impact where performance and stability are non-negotiable.
           </p>
           <a
             href="/resume.pdf"
