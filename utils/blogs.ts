@@ -12,6 +12,152 @@ export interface BlogPost {
 
 export const blogs: BlogPost[] = [
   {
+    slug: 'day-3-ingestion-architecture-apis-beautifulsoup',
+    title: 'Day 3: Ingestion Architecture — Communicating with Web APIs and Extracting Raw Content',
+    excerpt: 'As an AI engineer building advanced RAG loops or multi-agent pipelines, your models require live data. Day 3 focuses on Requests for web transactions and BeautifulSoup for parsing raw HTML.',
+    date: 'Jul 4, 2026',
+    readTime: '6 min read',
+    category: 'AI & Engineering',
+    tags: ['AI Engineer', 'Python', 'Web Scraping', 'BeautifulSoup', 'Requests', 'Roadmap'],
+    coverImage: '/blog/ai-engineer-day3-cover.png',
+    content: `
+      <p class="lead text-xl text-neutral-300 mb-8 leading-relaxed">
+        Over the past two days, we isolated our developer workspace and mastered the data transformation pipelines within Pandas. Now, we move to the final foundational step of <strong>Phase 1 (Week 1–2): Python + Data</strong>.
+      </p>
+      
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        As an AI engineer building advanced Retrieval-Augmented Generation (RAG) loops or multi-agent pipelines, your models cannot survive strictly on pre-packaged, clean local CSV files. They require a steady stream of live data fetched programmatically from external environments.
+      </p>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Today, we dive into the protocols that connect your local Python engine to the outside world: executing network transactions via the <strong>Requests</strong> library and writing extraction layers with <strong>BeautifulSoup</strong> to gather unstructured web text.
+      </p>
+
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)] bg-black/40">
+        <div class="aspect-video w-full">
+          <iframe 
+            src="https://www.youtube.com/embed/ng2o98k983k" 
+            title="Python Tutorial: Web Scraping with BeautifulSoup and Requests Video Walkthrough" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen
+            class="w-full h-full"
+          ></iframe>
+        </div>
+        <div class="p-4 bg-white/5 text-xs text-neutral-400 border-t border-white/10 italic text-center">
+          YouTube Walkthrough: Web Scraping with BeautifulSoup and Requests.
+        </div>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">1. Network Transactions: Managing HTTP Requests</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        To ingest live documentation or feed data into remote LLM cloud endpoints, your system must speak the standard language of the web. The <strong>Requests</strong> library abstracts complex network socket management into predictable, human-readable Python commands.
+      </p>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        When your script dispatches a request, the external server returns an explicit response matrix. Your extraction logic must triage this matrix safely:
+      </p>
+
+      <ul class="list-disc pl-6 text-neutral-300 space-y-3 mb-8">
+        <li><strong>Status Codes:</strong> Verify execution success bounds (200 OK) before allocating memory for processing. Handle client-side disruptions (404 Not Found) or gateway structural errors (500 Internal Server Error) using try-except safety locks.</li>
+        <li><strong>JSON Serialization:</strong> Modern data APIs communicate entirely through nested JSON arrays. Use <code>.json()</code> to automatically translate response byte streams into native Python dictionary objects.</li>
+        <li><strong>Headers and Authentication:</strong> Pass structural metadata, User-Agent identification tags, and private bearer tokens within your network payloads to mimic regular browser signatures and prevent immediate IP rate-limiting.</li>
+      </ul>
+
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <img src="/blog/ingestion-api-requests.png" alt="Line diagram showing an isolated Python script passing custom Headers and a GET command to an API server, receiving a JSON array response" class="w-full h-auto" />
+        <div class="p-4 bg-white/5 text-xs text-neutral-400 border-t border-white/10 italic text-center">
+          Network Flow: Visualizing Python Requests interacting with an external API endpoint under browser user-agent signatures.
+        </div>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">2. Unstructured Extraction: Parsing Data with BeautifulSoup</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Not all information is packaged neatly into programmatic JSON API channels. The vast majority of the documentation, technical blogs, and legacy codebase files your AI models need to ingest exist as raw, unstructured HTML pages. <strong>BeautifulSoup</strong> acts as your structural scalpel—compiling messy, text-heavy code trees into traversable node matrices.
+      </p>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        To build clean web content parsers, you must master targeting explicit document structures:
+      </p>
+
+      <ul class="list-disc pl-6 text-neutral-300 space-y-3 mb-8">
+        <li><code>soup.find()</code>: Safely extracts the first singular instance of an HTML node containing target attributes or ID definitions.</li>
+        <li><code>soup.find_all()</code>: Iterates through the entire DOM layout to fetch list arrays of matching elements (e.g., gathering every paragraph element or documentation link block on a page).</li>
+        <li><strong>CSS Selectors (<code>.select()</code>):</strong> Utilize powerful syntax rules to target highly specific multi-layered data paths (e.g., <code>soup.select('div.content_wrapper > ul.resource_list > li.item')</code>).</li>
+      </ul>
+
+      <blockquote class="border-l-4 border-purple-500 pl-4 italic text-neutral-300 my-6">
+        <strong>The Cleaning Imperative:</strong> Raw scraped text contains substantial formatting noise—including trailing whitespaces, script elements, and stray tag fragments. Always chain <code>.get_text(strip=True)</code> to ensure your text payload is pristine before pass-through operations.
+      </blockquote>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Core Task: The Documentation Harvester Script</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        To pass Day 3, you will combine network interaction and structural content parsing into a single automated script.
+      </p>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Create a Python script utilizing Requests and BeautifulSoup that executes the following lifecycle:
+      </p>
+
+      <ol class="list-decimal pl-6 text-neutral-300 space-y-3 mb-8">
+        <li>Dispatch a secure HTTP GET request to a public tech documentation endpoint or sandbox blog page.</li>
+        <li>Intercept potential timeout failures and evaluate status codes to ensure pipeline integrity.</li>
+        <li>Parse the raw returned HTML DOM tree into a structured text layout.</li>
+        <li>Programmatically isolate and pull only the primary article text blocks (ignoring headers, footers, and sidebar navigation menus).</li>
+        <li>Append the sanitized content string into a clean data array, then log your operation milestone via Git.</li>
+      </ol>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Key Takeaways for Day 3</h2>
+
+      <div class="overflow-x-auto my-8 rounded-xl border border-white/10 bg-white/5 shadow-md">
+        <table class="min-w-full divide-y divide-white/10 text-sm text-left">
+          <thead>
+            <tr class="bg-white/5">
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">Engineering Focus</th>
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">Production Implementation Rule</th>
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">The Danger Zone</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10 text-neutral-300">
+            <tr>
+              <td class="px-6 py-4 font-semibold text-white">API Compliance</td>
+              <td class="px-6 py-4">Explicitly declare network timeouts (<code>timeout=10</code>)</td>
+              <td class="px-6 py-4">Dispatched requests hanging indefinitely, locking system threads</td>
+            </tr>
+            <tr class="bg-white/[0.01]">
+              <td class="px-6 py-4 font-semibold text-white">Parsing Safety</td>
+              <td class="px-6 py-4">Isolate specific parent classes or custom DOM elements</td>
+              <td class="px-6 py-4">Grabbing the entire page body indiscriminately, flooding token inputs with noise</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-semibold text-white">Rate Management</td>
+              <td class="px-6 py-4">Inject valid browser identity tags (<code>headers={'User-Agent': '...'}</code>)</td>
+              <td class="px-6 py-4">Spamming external servers with unlabelled requests, causing immediate IP bans</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Conclusion: Bridging the Intelligence Pipeline</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Mastering Requests and BeautifulSoup marks the complete graduation of your foundational Python track. You are no longer constrained by local files; your code can now harvest, parse, clean, and organize any source of documentation or unstructured information across the live web. This sets the precise ingestion blueprint needed as we pivot toward machine learning algorithms and retrieval networks.
+      </p>
+
+      <div class="mt-12 pt-6 border-t border-white/10">
+        <span class="text-neutral-500 text-sm">Recommended YouTube Research Track:</span>
+        <div class="flex flex-col gap-2 mt-2 text-sm">
+          <a href="https://www.youtube.com/watch?v=ng2o98k983k" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors flex items-center">
+            🔗 Corey Schafer: Python Tutorial — Web Scraping with BeautifulSoup and Requests
+          </a>
+          <a href="https://www.youtube.com/watch?v=XVv6mJpfUis" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors flex items-center">
+            🔗 freeCodeCamp.org: Web Scraping with Python — Beautiful Soup Crash Course
+          </a>
+        </div>
+      </div>
+    `
+  },
+  {
     slug: 'day-2-data-wrangling-architecture-pandas-mechanics',
     title: 'Day 2: Data Wrangling Architecture — Mastering the Core Mechanics of Pandas',
     excerpt: 'Syntax memorization is a trap. Day 2 of the AI Engineer blueprint focuses on the structural core of Phase 1 (Python + Data) using Pandas Series, DataFrames, cleaning routines, and group aggregations.',
