@@ -12,6 +12,176 @@ export interface BlogPost {
 
 export const blogs: BlogPost[] = [
   {
+    slug: 'http-query-method-rfc-10008',
+    title: 'The Best of Both Worlds: Why HTTP Finally Added the QUERY Method',
+    excerpt: 'For decades, API architects and developers had to choose between GET URL limits and POST non-idempotent semantics. In June 2026, the IETF officially resolved this constraint with the QUERY method (RFC 10008).',
+    date: 'Jul 9, 2026',
+    readTime: '5 min read',
+    category: 'API Design',
+    tags: ['HTTP QUERY', 'API Design', 'RFC 10008', 'REST API', 'Web Development'],
+    coverImage: '/blog/http-query-cover.png',
+    content: `
+      <p class="lead text-xl text-neutral-300 mb-8 leading-relaxed">
+        For decades, API architects and web application developers have been forced into an awkward structural compromise when designing complex data searches. If your software needs to request data using multi-layered filters, dynamic sorting criteria, or high-volume parameters, the core HTTP protocol forces you to make a problematic design choice: misuse a <code>GET</code> request or cheat with a <code>POST</code> request.
+      </p>
+      
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        In June 2026, the Internet Engineering Task Force (IETF) officially resolved this architectural constraint by publishing <strong>RFC 10008</strong>, introducing a brand-new, standardized HTTP method called <strong>QUERY</strong>.
+      </p>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        This protocol update represents the most significant addition to core web semantics since <code>PATCH</code> gained global adoption. Let's break down exactly why it was created, how it addresses legacy workflow loopholes, and what it means for next-generation system engineering.
+      </p>
+
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)] bg-black/40">
+        <div class="aspect-video w-full">
+          <iframe 
+            src="https://www.youtube.com/embed/m2B570MZMQs" 
+            title="Why HTTP QUERY is the Perfect Middle Ground: GET vs POST Search" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen
+            class="w-full h-full"
+          ></iframe>
+        </div>
+        <div class="p-4 bg-white/5 text-xs text-neutral-400 border-t border-white/10 italic text-center">
+          YouTube Walkthrough: Comparing HTTP GET, POST, and the new QUERY method.
+        </div>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">The Core Problem: The GET vs. POST Architectural Flaw</h2>
+      
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        To understand why a new specification was mandatory, we must evaluate the design failures of the two methods developers traditionally relied upon to query backend databases.
+      </p>
+
+      <h3 class="text-xl font-brand font-bold text-white mt-8 mb-4">The GET Limitations: Mile-Long URLs</h3>
+      
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A standard <code>GET</code> request is designed to retrieve a resource safely and repeatedly. However, HTTP rules dictate that <code>GET</code> requests carry all their parameters directly within the target Uniform Resource Identifier (URI) query string. When an application implements advanced data sorting, complex enterprise dashboards, or deep AI-driven search operations, this pattern hits two critical roadblocks:
+      </p>
+
+      <ol class="list-decimal pl-6 text-neutral-300 space-y-3 mb-8">
+        <li><strong>Strict Size Thresholds:</strong> Most server routers, content delivery networks (CDNs), and intermediate proxies enforce a hard ceiling on URL lengths (typically around 8,000 characters). Blow past this limit, and the infrastructure drops your transaction.</li>
+        <li><strong>The Privacy Moat:</strong> Data embedded in a URL is fundamentally insecure. URLs are captured in plain text across proxy logs, server metrics, browser histories, and monitoring platforms, creating massive leaks for sensitive search variables.</li>
+      </ol>
+
+      <h3 class="text-xl font-brand font-bold text-white mt-8 mb-4">The POST Workaround: Broken Semantics</h3>
+      
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        To bypass URL limits, developers frequently route read-only data searches through <code>POST</code> requests, packaging their complex query parameters cleanly inside a structured JSON request body.
+      </p>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        While this solves the size barrier, it violates standard web design principles. In HTTP semantics, <code>POST</code> is explicitly non-idempotent. It signals to the network that you are executing a state change on the server (such as creating a user or making a financial transaction). Because intermediaries cannot assume a <code>POST</code> request is read-only:
+      </p>
+
+      <ul class="list-disc pl-6 text-neutral-300 space-y-3 mb-8">
+        <li><strong>Automatic Retries are Blocked:</strong> If a proxy drops a connection halfway through a <code>POST</code> search, it cannot safely resend the request automatically because doing so might trigger unintended duplicate actions.</li>
+        <li><strong>Caching Utilities are Disabled:</strong> Edge caching and CDN clusters disable optimization caching on <code>POST</code> pipelines by default, forcing heavy computational loads back to your primary database servers.</li>
+      </ul>
+
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <img src="/blog/http-query-flow.png" alt="High-quality flowchart comparing HTTP GET, POST, and QUERY methods on safety, idempotency, request body size, and caching properties" class="w-full h-auto" />
+        <div class="p-4 bg-white/5 text-xs text-neutral-400 border-t border-white/10 italic text-center">
+          Architectural Blueprint: Comparison of HTTP GET, POST, and QUERY protocols.
+        </div>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Enter HTTP QUERY: The Complete Paradigm Shift</h2>
+      
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        The newly standardized <code>QUERY</code> method combines the structural flexibility of a <code>POST</code> request body with the strict safety and predictability guarantees of a <code>GET</code> request.
+      </p>
+
+      <pre class="bg-black/40 border border-white/10 rounded-xl p-6 text-neutral-200 overflow-x-auto my-8 font-mono text-sm leading-relaxed"><code>QUERY /products/search HTTP/1.1
+Host: api.example.com
+Content-Type: application/json
+Accept: application/json
+
+{
+  "category": "books",
+  "price": { "lt": 30 },
+  "sort": ["-published", "title"],
+  "page": { "size": 20 }
+}</code></pre>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        The specification dictates that a <code>QUERY</code> request target processes the enclosed body content in an explicitly <strong>safe and idempotent</strong> manner. It does not alter server-side data state. Because the protocol guarantees that repeating the transaction is entirely safe, the entire internet routing layer can instantly handle it like a standard <code>GET</code>: edge proxies can optimize caching structures, and HTTP clients can safely auto-retry dropped network packets seamlessly.
+      </p>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Key Takeaways: Evaluating the Method Matrix</h2>
+
+      <div class="overflow-x-auto my-8 rounded-xl border border-white/10 bg-white/5 shadow-md">
+        <table class="min-w-full divide-y divide-white/10 text-sm text-left">
+          <thead>
+            <tr class="bg-white/5">
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">Protocol Attribute</th>
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">HTTP GET</th>
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">HTTP POST</th>
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">New HTTP QUERY</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10 text-neutral-300">
+            <tr>
+              <td class="px-6 py-4 font-semibold text-white">Safe (No Server Side Effects)</td>
+              <td class="px-6 py-4 text-emerald-400 font-medium">✅ Yes</td>
+              <td class="px-6 py-4 text-rose-400 font-medium">❌ No</td>
+              <td class="px-6 py-4 text-emerald-400 font-medium">✅ Yes</td>
+            </tr>
+            <tr class="bg-white/[0.01]">
+              <td class="px-6 py-4 font-semibold text-white">Idempotent (Safe to Auto-Retry)</td>
+              <td class="px-6 py-4 text-emerald-400 font-medium">✅ Yes</td>
+              <td class="px-6 py-4 text-rose-400 font-medium">❌ No</td>
+              <td class="px-6 py-4 text-emerald-400 font-medium">✅ Yes</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-semibold text-white">Carries Structured Request Body</td>
+              <td class="px-6 py-4 text-rose-400 font-medium">❌ No defined meaning</td>
+              <td class="px-6 py-4 text-emerald-400 font-medium">✅ Yes</td>
+              <td class="px-6 py-4 text-emerald-400 font-medium">✅ Yes (Mandatory <code>Content-Type</code>)</td>
+            </tr>
+            <tr class="bg-white/[0.01]">
+              <td class="px-6 py-4 font-semibold text-white">Cacheable by Default Intermediaries</td>
+              <td class="px-6 py-4 text-emerald-400 font-medium">✅ Yes</td>
+              <td class="px-6 py-4 text-rose-400 font-medium">❌ No</td>
+              <td class="px-6 py-4 text-emerald-400 font-medium">✅ Yes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="list-disc pl-6 text-neutral-300 space-y-3 mb-8">
+        <li><strong>Content-Type Enforcement:</strong> The RFC specifies that <code>QUERY</code> requests must declare a distinct <code>Content-Type</code> header (e.g., <code>application/json</code>, <code>application/sql</code>, or <code>application/graphql</code>). If it is missing or mismatched, the server rejects the request immediately.</li>
+        <li><strong>Discovery Headers (<code>Accept-Query</code>):</strong> Servers can now advertise exactly which query languages or filtering schemas they support by broadcasting a native <code>Accept-Query</code> header during preflight options checks.</li>
+        <li><strong>The GraphQL & Vector Solution:</strong> Large query frameworks like GraphQL and high-volume vector search engines no longer require <code>POST</code> workarounds. They can run large data filter footprints natively at the protocol level.</li>
+      </ul>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Conclusion: The Modern API Standard</h2>
+      
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        The launch of the HTTP QUERY method under RFC 10008 officially irons out a structural compromise web developers have accepted for decades. By detaching a request's parameter footprint from the physical limits of a URL string without losing safe retry and edge-caching capabilities, the industry gains a highly scalable, semantic standard for read-only operations.
+      </p>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        While browser ecosystems and client-side web frameworks are only beginning to roll out native client engine support for the method, server-to-server microservices and modern API networks are already adopting <code>QUERY</code> to construct cleaner, highly optimized automation architectures.
+      </p>
+
+      <div class="mt-12 pt-6 border-t border-white/10">
+        <span class="text-neutral-500 text-sm">Resources & Specification Documentation:</span>
+        <div class="flex flex-col gap-2 mt-2 text-sm">
+          <a href="https://datatracker.ietf.org/doc/html/rfc10008" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors flex items-center">
+            🔗 IETF Official Standard: RFC 10008 — The HTTP QUERY Method Specification
+          </a>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors flex items-center">
+            🔗 MDN Web Docs Update: HTTP Request Methods Reference Matrix
+          </a>
+        </div>
+      </div>
+    `
+  },
+  {
     slug: 'day-3-ingestion-architecture-apis-beautifulsoup',
     title: 'Day 3: Ingestion Architecture — Communicating with Web APIs and Extracting Raw Content',
     excerpt: 'As an AI engineer building advanced RAG loops or multi-agent pipelines, your models require live data. Day 3 focuses on Requests for web transactions and BeautifulSoup for parsing raw HTML.',
