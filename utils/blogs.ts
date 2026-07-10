@@ -12,6 +12,159 @@ export interface BlogPost {
 
 export const blogs: BlogPost[] = [
   {
+    slug: 'day-4-mastering-train-test-split-preventing-data-leakage',
+    title: 'Day 4: Ditching the Data Traps — Mastering the Train-Test Split and Avoiding Data Leakage',
+    excerpt: 'Evaluating models on training data is a fatal error. Today, we cross into Machine Learning basics, focusing on proper train-test partitioning in Scikit-Learn and securing preprocessing pipelines against data leakage.',
+    date: 'Jul 10, 2026',
+    readTime: '5 min read',
+    category: 'AI & Engineering',
+    tags: ['AI Engineer', 'Machine Learning', 'Scikit-Learn', 'Data Preprocessing', 'Data Leakage', 'Roadmap'],
+    coverImage: '/blog/ai-engineer-day4-cover.png',
+    content: `
+      <p class="lead text-xl text-neutral-300 mb-8 leading-relaxed">
+        Welcome to <strong>Day 4</strong> of your 3-Month AI Engineer roadmap. Over the first three days, we locked down our local runtime environments, parsed data architectures using Pandas, and harvested unstructured code representations from the live web. Now, we are officially crossing the boundary line into <strong>Phase 2 (Week 3–4): Machine Learning Basics</strong>.
+      </p>
+      
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        As an AI engineer, you will rarely be tasked with inventing a raw machine learning algorithm from a blank page. Instead, your primary engineering value lies in your ability to prepare features cleanly, prevent model corruption, and evaluate performance accurately. Today, we focus on the fundamental separation of concerns in machine learning: dividing our data matrix into training and testing subsets using <strong>Scikit-Learn</strong> while avoiding the silent, pipeline-destroying error known as <strong>Data Leakage</strong>.
+      </p>
+
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)] bg-black/40">
+        <div class="aspect-video w-full">
+          <iframe 
+            src="https://www.youtube.com/embed/fSytzGww2ns" 
+            title="StatQuest: Cross Validation Explained Video Walkthrough" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen
+            class="w-full h-full"
+          ></iframe>
+        </div>
+        <div class="p-4 bg-white/5 text-xs text-neutral-400 border-t border-white/10 italic text-center">
+          YouTube Walkthrough: StatQuest Cross Validation Explained.
+        </div>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">1. The Separation of Concerns: Train-Test Mechanics</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Evaluating a machine learning model on the exact same data variables it used during training is the most fundamental methodological mistake you can make. An algorithm can simply memorize every row it encounters, generating a flawless performance score while completely failing to generalize to new, unseen production inputs. This critical error is called <strong>Overfitting</strong>.
+      </p>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        To establish an honest estimation of accuracy, your dataset must be split into two isolated blocks:
+      </p>
+
+      <ul class="list-disc pl-6 text-neutral-300 space-y-3 mb-8">
+        <li><strong>The Train Dataset:</strong> The matrix array used to fit the internal coefficients and mathematical parameters of the model.</li>
+        <li><strong>The Test Dataset:</strong> A completely independent holdout subset used exclusively to audit the model's predictions against known target indicators.</li>
+      </ul>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Using Scikit-Learn’s <code>train_test_split()</code>, we pass our feature array ($X$) and label array ($y$), explicitly configuring the partition footprint (commonly an $80/20$ or $70/30$ percentage configuration).
+      </p>
+
+      <pre class="bg-black/40 border border-white/10 rounded-xl p-6 text-neutral-200 overflow-x-auto my-8 font-mono text-sm leading-relaxed"><code>from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42)</code></pre>
+
+      <blockquote class="border-l-4 border-purple-500 pl-4 italic text-neutral-300 my-6">
+        <strong>The Professional Anchor:</strong> Always hardcode your <code>random_state</code> execution key. Because splitting relies on a pseudo-random number generator, setting a static seed ensures that your arrays partition identically across every test run, keeping your benchmarking trials completely reproducible.
+      </blockquote>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">2. The Silent Killer: Data Leakage in Preprocessing</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        You can write syntactically perfect Python code, achieve exceptional validation scores on your test set, and still deploy a broken model if your engineering pipeline suffers from <strong>Data Leakage</strong>. Data leakage occurs when information from outside the training dataset accidentally influences the model's training process.
+      </p>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        The most frequent venue for this error is during data preprocessing steps, such as feature scaling (e.g., computing a column's mean or standard deviation to standardize data).
+      </p>
+
+      <h3 class="text-xl font-brand font-bold text-white mt-8 mb-4">The Incorrect Anti-Pattern:</h3>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        If you execute a feature transformation function across your entire unified database <em>before</em> calling <code>train_test_split()</code>, your training matrix absorbs structural calculations (like the global maximum value) that belong to the test set. Your model has unfairly "seen" the future.
+      </p>
+
+      <h3 class="text-xl font-brand font-bold text-white mt-8 mb-4">The Correct Engineering Rule:</h3>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        You must partition your data arrays <em>first</em>. Calculate all statistical parameters (means, scales, vocabularies) <strong>exclusively on the training subset</strong> by calling <code>.fit_transform()</code>. Then, apply those fixed, historical metrics to the test subset by calling <code>.transform()</code> only. Never call <code>.fit()</code> on your holdout data.
+      </p>
+
+      <div class="my-8 rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <img src="/blog/data-leakage-prevention.png" alt="A professional schematic diagram comparing Incorrect vs Correct data preprocessing. Incorrect flows the full database to transform first then splits. Correct splits first, fits standard parameters exclusively on train features, and transforms test features using train parameter values." class="w-full h-auto" />
+        <div class="p-4 bg-white/5 text-xs text-neutral-400 border-t border-white/10 italic text-center">
+          Prevention Protocol: Correctly isolating scaling computations on the training set to prevent leakage.
+        </div>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Core Task: The Leak-Proof Validation Script</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        To pass Day 4, you will construct a clean, leak-proof data preparation and model validation script inside your workspace.
+      </p>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Create a Python script using Scikit-Learn that executes the following lifecycle:
+      </p>
+
+      <ol class="list-decimal pl-6 text-neutral-300 space-y-3 mb-8">
+        <li>Load an unstructured tabular dataset containing missing values and raw continuous numerical ranges.</li>
+        <li>Immediately isolate the target vectors and partition the data into an $80\%$ training and $20\%$ testing split with a locked random seed.</li>
+        <li>Compute missing value imputations and calculate scaling metrics <strong>exclusively on the training features</strong>.</li>
+        <li>Apply the computed training transformations to the testing features without recalculating new metrics.</li>
+        <li>Fit a baseline regression model on the clean training set, and log your successful matrix state changes using Git.</li>
+      </ol>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Key Takeaways for Day 4</h2>
+
+      <div class="overflow-x-auto my-8 rounded-xl border border-white/10 bg-white/5 shadow-md">
+        <table class="min-w-full divide-y divide-white/10 text-sm text-left">
+          <thead>
+            <tr class="bg-white/5">
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">Implementation Target</th>
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">The Safe Engineering Path</th>
+              <th class="px-6 py-4 font-bold text-white uppercase tracking-wider">The Dangerous Trap</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10 text-neutral-300">
+            <tr>
+              <td class="px-6 py-4 font-semibold text-white">Data Partitioning</td>
+              <td class="px-6 py-4">Hardcode a static <code>random_state=42</code> seed</td>
+              <td class="px-6 py-4">Allowing dynamic random splits that break pipeline reproducibility</td>
+            </tr>
+            <tr class="bg-white/[0.01]">
+              <td class="px-6 py-4 font-semibold text-white">Feature Transformation</td>
+              <td class="px-6 py-4">Run <code>.fit_transform()</code> only on training records</td>
+              <td class="px-6 py-4">Scaling the entire dataset uniformly before execution splitting</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-semibold text-white">Model Verification</td>
+              <td class="px-6 py-4">Audit model metrics exclusively using the holdout test set</td>
+              <td class="px-6 py-4">Modifying model design hyperparameters based on test set scores</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-brand font-bold text-white mt-12 mb-6">Conclusion: Guarding the Validation Moat</h2>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Day 4 transitions your engineering perspective from basic coding to rigorous model evaluation. By mastering the execution mechanics of train-test partitioning and establishing leak-proof preprocessing pipelines, you ensure that your performance metrics represent true generalization capabilities. This defensive coding baseline is vital as we build advanced text categorizers and multi-agent systems later in the roadmap.
+      </p>
+
+      <div class="mt-12 pt-6 border-t border-white/10">
+        <span class="text-neutral-500 text-sm">Recommended Research Track & Documentation:</span>
+        <div class="flex flex-col gap-2 mt-2 text-sm">
+          <a href="https://machinelearningmastery.com/train-test-split-for-evaluating-machine-learning-algorithms/" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors flex items-center">
+            🔗 Machine Learning Mastery (Jason Brownlee Guide): Train-Test Split Evaluation in Scikit-Learn
+          </a>
+          <a href="https://www.youtube.com/watch?v=fSytzGww2ns" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors flex items-center">
+            🔗 StatQuest with Josh Starmer: Machine Learning Fundamentals — Cross-Validation Explained
+          </a>
+        </div>
+      </div>
+    `
+  },
+  {
     slug: 'http-query-method-rfc-10008',
     title: 'The Best of Both Worlds: Why HTTP Finally Added the QUERY Method',
     excerpt: 'For decades, API architects and developers had to choose between GET URL limits and POST non-idempotent semantics. In June 2026, the IETF officially resolved this constraint with the QUERY method (RFC 10008).',
