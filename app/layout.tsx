@@ -11,7 +11,7 @@ const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
 export const metadata: Metadata = {
   metadataBase: new URL('https://vijaykakade.com'),
   title: 'Vijay Kakade | AI, Cloud & DevOps Engineer',
-  description: 'Experienced IT Professional with 12+ years in infrastructure, cloud, DevOps, and Generative AI. Explore my multi-cloud projects, timeline, and certifications.',
+  description: 'Experienced IT Professional with 13+ years in infrastructure, cloud, DevOps, and Generative AI. Explore my multi-cloud projects, timeline, and certifications.',
   keywords: [
     'Vijay Kakade',
     'DevOps Engineer',
@@ -31,14 +31,14 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://www.vijaykakade.com',
     title: 'Vijay Kakade | AI, Cloud & DevOps Engineer',
-    description: 'Experienced IT Professional with 12+ years in infrastructure, cloud, DevOps, and Generative AI.',
+    description: 'Experienced IT Professional with 13+ years in infrastructure, cloud, DevOps, and Generative AI.',
     siteName: 'Vijay Kakade Portfolio',
     images: [{ url: 'https://vijaykakade.com/logo.png', width: 1000, height: 1000, alt: 'Vijay Kakade' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Vijay Kakade | AI, Cloud & DevOps Engineer',
-    description: 'Experienced IT Professional with 12+ years in infrastructure, cloud, DevOps, and Generative AI.',
+    description: 'Experienced IT Professional with 13+ years in infrastructure, cloud, DevOps, and Generative AI.',
     images: ['https://vijaykakade.com/logo.png'],
   },
 };

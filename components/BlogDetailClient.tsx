@@ -242,7 +242,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
             <div className="flex-grow">
               <h4 className="text-xl font-brand font-bold text-white mb-2">Vijay Kakade</h4>
               <p className="text-neutral-400 text-sm leading-relaxed mb-4">
-                Cloud, AI & DevOps Engineer with 12+ years of experience building secure, scalable, and automated cloud systems. Specialized in Multi-Cloud architectures and Generative AI workflows.
+                Multi-Cloud Architect and AI Engineer with 13+ years of experience building resilient, enterprise-grade systems and the intelligent automation that powers them. Specialized in Multi-Cloud architectures and Generative AI workflows.
               </p>
               <div className="flex flex-wrap items-center gap-3">
                 <a aria-label="Visit Website" href="https://vijaykakade.com" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 hover:border-white/20 text-neutral-400 hover:text-white hover:-translate-y-0.5 transition-all">
