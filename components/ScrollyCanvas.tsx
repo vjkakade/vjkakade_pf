@@ -67,34 +67,34 @@ export default function ScrollyCanvas({ frameCount }: ScrollyCanvasProps) {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // ensure canvas is sized correctly based on device pixel ratio
     const img = imgs[frameIndex];
     if (img.width === 0 || img.height === 0) return; // not loaded yet
-    
-    // Calculate aspect ratio / object-fit cover logic
-    // We use the canvas "logical" size in layout here rather than pure pixel resolution, 
-    // but drawing should scale based on the internal pixel buffer dimensions.
-    const logicalWidth = canvas.clientWidth;
-    const logicalHeight = canvas.clientHeight;
-    
-    const rw = logicalWidth / img.width;
-    const rh = logicalHeight / img.height;
+
+    // The canvas buffer is already set to physical pixels (clientWidth * dpr) in the
+    // resize handler, so all drawing must use physical pixel coordinates directly.
+    // Do NOT call ctx.scale(dpr, dpr) here — that would double the transformation
+    // and cause blurry / clipped frames on HiDPI (retina) displays.
+    const dpr = window.devicePixelRatio || 1;
+    const physicalWidth = canvas.width;   // = clientWidth  * dpr
+    const physicalHeight = canvas.height; // = clientHeight * dpr
+
+    // Calculate object-fit: cover in physical pixels
+    const rw = physicalWidth / img.width;
+    const rh = physicalHeight / img.height;
     const ratio = Math.max(rw, rh);
 
-    // Scale up by 8% to naturally crop out the Veo watermark (which usually sits in the corner)
+    // Scale up by 8% to naturally crop out the Veo watermark (corner of frame)
     const scaleFactor = 1.08;
     const newWidth = img.width * ratio * scaleFactor;
     const newHeight = img.height * ratio * scaleFactor;
-    const x = (logicalWidth - newWidth) / 2;
-    const y = (logicalHeight - newHeight) / 2;
+    const x = (physicalWidth - newWidth) / 2;
+    const y = (physicalHeight - newHeight) / 2;
 
-    // We scale the context by dpr so operations use logical units
-    const dpr = window.devicePixelRatio || 1;
-    ctx.save();
-    ctx.scale(dpr, dpr);
-    ctx.clearRect(0, 0, logicalWidth, logicalHeight);
+    ctx.clearRect(0, 0, physicalWidth, physicalHeight);
     ctx.drawImage(img, x, y, newWidth, newHeight);
-    ctx.restore();
+
+    // suppress unused-var lint warning for dpr (it documents intent above)
+    void dpr;
   };
 
   // Resize handler for Canvas

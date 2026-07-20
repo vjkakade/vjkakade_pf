@@ -1,9 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Video } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { playClickSound } from '@/utils/sound';
 
 const GithubIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -29,13 +28,6 @@ const projects = [
 ];
 
 export default function Projects() {
-  const [filter, setFilter] = useState('All');
-  
-  const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))];
-  
-  const filteredProjects = filter === 'All' 
-    ? projects 
-    : projects.filter(p => p.category === filter);
 
   return (
     <section className="relative z-20 bg-[#121212] py-16 px-8 md:px-24">
@@ -47,28 +39,9 @@ export default function Projects() {
           A collection of my hands-on DevOps, Cloud & Automation work.
         </p>
 
-        <div className="flex flex-wrap gap-3 mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => {
-                setFilter(cat);
-                playClickSound();
-              }}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                filter === cat 
-                  ? 'bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.2)]' 
-                  : 'bg-white/5 text-neutral-400 border border-white/10 hover:bg-white/10 hover:text-white'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
         <motion.div layout className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
+            {projects.map((project) => (
               <motion.div
                 layout
                 initial={{ opacity: 0, scale: 0.95 }}

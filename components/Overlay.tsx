@@ -46,10 +46,10 @@ export default function Overlay() {
           className="absolute left-8 md:left-24 max-w-lg p-8"
         >
           <h2 className="text-4xl md:text-6xl font-brand font-bold tracking-tight text-white drop-shadow-lg">
-            I build digital experiences.
+            I architect cloud at scale.
           </h2>
           <p className="mt-4 text-lg md:text-xl text-neutral-300">
-            Crafting seamless, interactive interfaces with a focus on performance and aesthetics.
+            Multi-cloud infrastructure across AWS, Azure, GCP & OCI — built for availability, security, and zero-downtime operations.
           </p>
         </motion.div>
 
@@ -59,10 +59,10 @@ export default function Overlay() {
           className="absolute right-8 md:right-24 max-w-lg text-right p-8"
         >
           <h2 className="text-4xl md:text-6xl font-brand font-bold tracking-tight text-white drop-shadow-lg">
-            Bridging design and engineering.
+            AI that works in production.
           </h2>
           <p className="mt-4 text-lg md:text-xl text-neutral-300">
-            Every pixel is considered. Every animation is purposeful.
+            Designing agentic workflows, RAG pipelines, and LLM integrations that turn intelligence into measurable outcomes.
           </p>
         </motion.div>
         

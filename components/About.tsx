@@ -12,7 +12,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-start">
         
         <div className="md:w-1/2">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-brand font-bold text-white mb-6 tracking-tight">
             Hi, It&apos;s Vijay.
           </h2>
           <p className="text-lg text-neutral-300 leading-relaxed mb-6">
@@ -34,9 +34,9 @@ export default function About() {
         </div>
 
         <div className="md:w-1/2">
-          <h2 className="text-3xl font-bold text-white mb-6 tracking-tight">
+          <h3 className="text-3xl font-brand font-bold text-white mb-6 tracking-tight">
             Skills & Expertise
-          </h2>
+          </h3>
           <p className="text-neutral-400 mb-8 leading-relaxed">
             Tools and technologies I use to build scalable and automated cloud environments, focusing on CI/CD automation, Infrastructure as Code, and production-ready solutions.
           </p>

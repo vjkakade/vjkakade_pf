@@ -64,7 +64,7 @@ const roles = [
       'Led complete IBM TRIRIGA implementation lifecycle — sizing, installation, configuration, testing, deployment, and documentation.',
       'Engineered TRIRIGA integrations with enterprise systems, developing technical specifications and Real Estate module functionality.',
       'Administered IBM HTTP Server, TRIRIGA, WebSphere, JBoss, Apache, and IIS across Linux environments.',
-      'Delivered enterprise-class VMware infrastructure (vSphere 6.0/6.5) as multi-tenant cloud base for service provider partners Administered vCenter, configuring HA/DRS clusters, VM templates, Fault Tolerance, and vRealize Operations Manager for capacity planning.'
+      'Delivered enterprise-class VMware infrastructure (vSphere 6.0/6.5) as multi-tenant cloud base for service provider partners. Administered vCenter, configuring HA/DRS clusters, VM templates, Fault Tolerance, and vRealize Operations Manager for capacity planning.'
     ]
   },
   {
