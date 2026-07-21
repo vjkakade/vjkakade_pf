@@ -29,7 +29,7 @@ export default function Skills() {
   ];
 
   return (
-    <section className="relative z-20 bg-[#121212] py-24 px-8 md:px-24 overflow-hidden border-t border-white/5">
+    <section className="relative z-20 bg-[#121212]/60 py-24 px-8 md:px-24 overflow-hidden border-t border-white/5">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
         
         {/* Left Section: Interactive Cards */}

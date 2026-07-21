@@ -47,7 +47,7 @@ const ImageIcon = ({ className }: { className?: string }) => (
 
 export default function Contact() {
   return (
-    <footer className="relative z-20 bg-[#121212] border-t border-white/5 py-24 px-8 md:px-24">
+    <footer className="relative z-20 bg-[#121212]/60 border-t border-white/5 py-24 px-8 md:px-24">
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
         
         <h2 className="text-4xl md:text-6xl font-brand font-bold text-white mb-6 tracking-tight">Let&apos;s Connect</h2>

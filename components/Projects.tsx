@@ -30,7 +30,7 @@ const projects = [
 export default function Projects() {
 
   return (
-    <section className="relative z-20 bg-[#121212] py-16 px-8 md:px-24">
+    <section className="relative z-20 bg-[#121212]/60 py-16 px-8 md:px-24">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-brand font-bold text-white mb-8 tracking-tight">
           My Projects

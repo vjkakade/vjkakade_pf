@@ -11,7 +11,7 @@ export default function LatestBlogs() {
   const latestBlogs = blogs.slice(0, 3);
 
   return (
-    <section className="relative z-20 bg-[#121212] py-24 px-8 md:px-24">
+    <section className="relative z-20 bg-[#121212]/60 py-24 px-8 md:px-24">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>

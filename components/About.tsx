@@ -8,7 +8,7 @@ const skills = [
 
 export default function About() {
   return (
-    <section className="relative z-20 bg-[#121212] pt-32 pb-16 px-8 md:px-24">
+    <section className="relative z-20 bg-[#121212]/60 pt-32 pb-16 px-8 md:px-24">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-start">
         
         <div className="md:w-1/2">

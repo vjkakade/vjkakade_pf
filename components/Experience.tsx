@@ -88,7 +88,7 @@ export default function Experience() {
   };
 
   return (
-    <section className="relative z-20 bg-[#121212] py-24 px-8 md:px-24 border-t border-white/5">
+    <section className="relative z-20 bg-[#121212]/60 py-24 px-8 md:px-24 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         
         <div className="flex items-center gap-4 mb-8">
