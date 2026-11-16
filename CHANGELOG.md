@@ -20,6 +20,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [2026-11-16] - Batch Media Asset Compression (31.66 MB Saved)
+### Changed
+- **Gallery Images Batch Compression**: Batch compressed all 58 images in `public/gallery/` using high-quality bicubic interpolation and quality 80 encoding, capping max dimensions at 1440px while maintaining identical filenames, aspect ratios, and visual clarity.
+  - **Result**: Reduced gallery total size from **38.82 MB down to 7.15 MB** (**31.66 MB saved / 81.6% reduction**).
+  - **Affected Directory**: `public/gallery/*.jpg` (58 files)
+- **Verification**: `npm run lint` — 0 warnings, 0 errors.
+
+---
+
 ## [2026-11-16] - Performance & Scrolling Smoothness Overhaul
 
 ### Removed
