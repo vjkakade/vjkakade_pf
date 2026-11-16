@@ -51,12 +51,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${outfit.variable} font-sans antialiased bg-[#121212]`}>
-        {/* Google tag (gtag.js) — fires site-wide */}
+        {/* Google tag (gtag.js) — fires site-wide during idle time */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18263681135"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

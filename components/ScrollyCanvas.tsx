@@ -12,6 +12,7 @@ export default function ScrollyCanvas({ frameCount }: ScrollyCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const imagesRef = useRef<(HTMLImageElement | null)[]>(new Array(frameCount).fill(null));
   const currentFrameRef = useRef<number>(0);
+  const rafIdRef = useRef<number | null>(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -161,11 +162,25 @@ export default function ScrollyCanvas({ frameCount }: ScrollyCanvasProps) {
     };
   }, [drawFrame, scrollYProgress, frameCount]);
 
-  // Scrub animation on scroll
+  // Scrub animation on scroll with RAF debounce
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    const frameIndex = Math.round(latest * (frameCount - 1));
-    requestAnimationFrame(() => drawFrame(frameIndex));
+    if (rafIdRef.current !== null) {
+      cancelAnimationFrame(rafIdRef.current);
+    }
+    rafIdRef.current = requestAnimationFrame(() => {
+      const frameIndex = Math.round(latest * (frameCount - 1));
+      drawFrame(frameIndex);
+      rafIdRef.current = null;
+    });
   });
+
+  useEffect(() => {
+    return () => {
+      if (rafIdRef.current !== null) {
+        cancelAnimationFrame(rafIdRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div ref={containerRef} className="relative h-[500vh] w-full bg-[#121212]">

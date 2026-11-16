@@ -20,6 +20,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [2026-11-16] - Dead Media Cleanup, GPU Pass Elimination & RAF Debounce
+### Removed
+- **Orphan Media Assets (14.31 MB)**: Cleaned up 9 unreferenced media files left over in `public/blog/` after prior blog removals (`ai-engineer-roadmap.mp4`, 4 day-series cover PNGs, and 4 article illustration PNGs).
+- **Stray Files & Unused Fonts**: Removed root `source` shell artifact and unused default fonts in `app/fonts/` (`GeistVF.woff`, `GeistMonoVF.woff`).
+- **GPU Backdrop Blurs**: Removed redundant `backdrop-blur-md` on 13 certification cards (`components/Certifications.tsx`) and 2 project cards (`components/Projects.tsx`), saving 15 GPU blur passes per scroll frame.
+
+### Changed
+- **ScrollyCanvas RAF Queue Debounce**: Added `rafIdRef` cancellation to cancel outdated pending animation frames during rapid scroll scrub, ensuring only the freshest frame is rendered.
+- **Snappier Page Transitions**: Reduced route navigation fade in `app/template.tsx` from `0.7s` to `0.3s` for immediate responsiveness.
+- **Lazy-Loaded Analytics**: Changed Google Tag Manager and Analytics strategy in `app/layout.tsx` to `strategy="lazyOnload"` to avoid blocking initial hydration.
+
+### Verification
+- `npm run lint` — 0 warnings, 0 errors.
+- `npm run build` — 20/20 static pages compiled successfully.
+
+---
+
 ## [2026-11-16] - Batch Media Asset Compression (31.66 MB Saved)
 ### Changed
 - **Gallery Images Batch Compression**: Batch compressed all 58 images in `public/gallery/` using high-quality bicubic interpolation and quality 80 encoding, capping max dimensions at 1440px while maintaining identical filenames, aspect ratios, and visual clarity.

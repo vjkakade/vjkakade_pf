@@ -31,7 +31,7 @@ export default function Certifications() {
           {certs.map((cert, idx) => (
             <div
               key={idx}
-              className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-colors duration-300 gap-4"
+              className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 rounded-xl bg-white/[0.03] border border-white/10 hover:bg-white/10 transition-colors duration-300 gap-4"
             >
               <div className="flex items-center flex-1">
                 <div className="h-3 w-3 rounded-full bg-white/50 mr-4 flex-shrink-0" />
