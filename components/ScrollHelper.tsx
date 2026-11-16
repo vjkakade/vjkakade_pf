@@ -16,15 +16,11 @@ export default function ScrollHelper() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show button after scrolling down 500px
-      if (window.scrollY > 500) {
-        setShowButton(true);
-      } else {
-        setShowButton(false);
-      }
+      const shouldShow = window.scrollY > 500;
+      setShowButton((prev) => (prev !== shouldShow ? shouldShow : prev));
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

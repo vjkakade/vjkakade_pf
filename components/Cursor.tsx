@@ -1,73 +1,88 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { usePathname } from 'next/navigation';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export default function Cursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
-  const pathname = usePathname();
+
+  // Motion values bypass React re-render cycles completely
+  const mouseX = useMotionValue(-100);
+  const mouseY = useMotionValue(-100);
+
+  const dotX = useSpring(mouseX, { stiffness: 900, damping: 35, mass: 0.1 });
+  const dotY = useSpring(mouseY, { stiffness: 900, damping: 35, mass: 0.1 });
+
+  const ringX = useSpring(mouseX, { stiffness: 280, damping: 24, mass: 0.5 });
+  const ringY = useSpring(mouseY, { stiffness: 280, damping: 24, mass: 0.5 });
 
   useEffect(() => {
-    const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+    // Only activate custom cursor on devices with fine pointer (mouse/trackpad)
+    if (typeof window === 'undefined' || !window.matchMedia('(pointer: fine)').matches) {
+      return;
+    }
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+      if (!isVisible) setIsVisible(true);
     };
 
-    window.addEventListener('mousemove', updateMousePosition);
+    // Single delegated listener for hover detection instead of attaching to all DOM nodes
+    const handleMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target?.closest('a, button, input, textarea, .cursor-pointer, [role="button"]')) {
+        setIsHovering(true);
+      } else {
+        setIsHovering(false);
+      }
+    };
+
+    const handleMouseLeave = () => {
+      setIsVisible(false);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    document.addEventListener('mouseover', handleMouseOver, { passive: true });
+    document.documentElement.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
-      window.removeEventListener('mousemove', updateMousePosition);
+      window.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseover', handleMouseOver);
+      document.documentElement.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, []);
+  }, [mouseX, mouseY, isVisible]);
 
-  // Re-bind hover listeners when pathname changes
-  useEffect(() => {
-    const updateHoverState = () => setIsHovering(true);
-    const resetHoverState = () => setIsHovering(false);
-
-    const interactiveElements = document.querySelectorAll('a, button, input, textarea, .cursor-pointer');
-    interactiveElements.forEach((el) => {
-      el.addEventListener('mouseenter', updateHoverState);
-      el.addEventListener('mouseleave', resetHoverState);
-    });
-
-    return () => {
-      interactiveElements.forEach((el) => {
-        el.removeEventListener('mouseenter', updateHoverState);
-        el.removeEventListener('mouseleave', resetHoverState);
-      });
-    };
-  }, [pathname]);
-
-  // Don't render cursor on mobile (touch devices usually don't fire mousemove cleanly or we don't want a sticky dot)
-  const [isMobile, setIsMobile] = useState(true);
-  useEffect(() => {
-    setIsMobile(window.matchMedia('(max-width: 768px)').matches);
-  }, []);
-
-  if (isMobile) return null;
+  if (!isVisible) return null;
 
   return (
     <>
+      {/* Inner precise dot */}
       <motion.div
-        className="fixed top-0 left-0 w-4 h-4 bg-white rounded-full mix-blend-difference pointer-events-none z-[9999]"
-        animate={{
-          x: mousePosition.x - 8,
-          y: mousePosition.y - 8,
-          scale: isHovering ? 2.5 : 1,
+        className="fixed top-0 left-0 w-2.5 h-2.5 bg-white rounded-full pointer-events-none z-[9999] shadow-[0_0_8px_rgba(255,255,255,0.9)] will-change-transform -translate-x-1/2 -translate-y-1/2"
+        style={{
+          x: dotX,
+          y: dotY,
         }}
-        transition={{ type: 'spring', stiffness: 500, damping: 28, mass: 0.5 }}
+        animate={{
+          scale: isHovering ? 2 : 1,
+        }}
+        transition={{ duration: 0.15 }}
       />
+
+      {/* Outer smooth follower ring */}
       <motion.div
-        className="fixed top-0 left-0 w-10 h-10 border border-white/20 rounded-full pointer-events-none z-[9998]"
-        animate={{
-          x: mousePosition.x - 20,
-          y: mousePosition.y - 20,
-          scale: isHovering ? 1.5 : 1,
-          opacity: isHovering ? 0 : 1,
+        className="fixed top-0 left-0 w-8 h-8 border border-white/30 rounded-full pointer-events-none z-[9998] will-change-transform -translate-x-1/2 -translate-y-1/2"
+        style={{
+          x: ringX,
+          y: ringY,
         }}
-        transition={{ type: 'spring', stiffness: 250, damping: 20, mass: 0.8 }}
+        animate={{
+          scale: isHovering ? 1.6 : 1,
+          borderColor: isHovering ? 'rgba(255, 255, 255, 0.6)' : 'rgba(255, 255, 255, 0.25)',
+        }}
+        transition={{ duration: 0.2 }}
       />
     </>
   );
